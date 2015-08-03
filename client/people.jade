@@ -1,0 +1,11 @@
+template(name='people')
+  h1 People ({{peopleCount}})
+
+  .ui.relaxed.divided.list
+    each users
+      .item
+        img.ui.avatar.image(src='#{profilePicture}')
+        .content
+          a.header
+            a(href="{{pathFor 'singlePerson'}}").header #{username}
+          .description Status

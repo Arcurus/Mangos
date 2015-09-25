@@ -1,0 +1,15 @@
+template(name='projects')
+  h3 Pools
+  form.addProject
+    input(type="text", name="name", placeholder="name")
+    input(type="submit", name="Add")
+
+  .ui.relaxed.divided.list
+    each projects
+      .item
+        img.ui.avatar.image(src='/CO|OPEN_Logo.png')
+        .content
+          a.header
+            a(href="{{pathFor 'singleProject'}}").header #{name}
+          .description Status
+

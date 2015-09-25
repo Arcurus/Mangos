@@ -1,1 +1,3 @@
-Meteor.subscribe 'allPeople'
+Meteor.subscribe 'People'
+Meteor.subscribe 'Transactions'
+Meteor.subscribe 'Projects'

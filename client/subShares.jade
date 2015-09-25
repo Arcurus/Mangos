@@ -1,0 +1,18 @@
+template(name="subShares")
+  table.ui.very.basic.celled.table
+    thead
+      tr
+        th Person
+        th Share
+    tbody
+    each shares
+      tr
+        td
+          h4.ui.image.header
+            img.ui.mini.rounded.image(src='/CO|OPEN_Logo.png')
+            .content #{person}
+              .sub.header
+                | Job Title
+        td
+          | #{percent}%
+

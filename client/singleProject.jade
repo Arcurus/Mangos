@@ -1,0 +1,18 @@
+template(name='singleProject')
+  h2.ui.header
+    img.ui.circular.image(src='/CO|OPEN_Logo.png')
+    .content
+      | #{name}
+      .sub.header #{account}
+
+  .ui.grid
+    .twelve.wide.column.streched
+      .ui.attached.tab.segment.active(data-tab="1")
+        +subTransactions
+      .ui.attached.tab.segment(data-tab="2")
+        +subShares
+    .four.wide.column
+      .ui.vertical.fluid.right.secondary.tabular.menu
+        a.item.active(data-tab="1") Transactions
+        a.item(data-tab="2") Shares
+

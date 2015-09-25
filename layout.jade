@@ -1,6 +1,13 @@
 template(name='layout')
+  .ui.teal.message
+    .header Attention
+    p This is just an prototype proposal for a future FreiCoin 2.0 with integrated world citizen dividend payed through the demurrage fee.
+    | Please keep in mind that the accounts and numbers are not yet backed by any real currency and are periodically erased for research purpose.
+
   .ui.secondary.pointing.menu
     a(href="/").item HOME
     a(href="/people").item PEOPLE
+    a(href="/transactions").item TRANSACTIONS
+
   #main
     +yield

@@ -1,11 +1,30 @@
 template(name='people')
-  h1 People ({{peopleCount}})
-
-  .ui.relaxed.divided.list
+  table.ui.very.basic.celled.table
+    thead
+      tr
+        th People (#{peopleCount}) verified (#{peopleVerified})
+        th Account
+        th BasicIncome
+    tbody
     each users
-      .item
-        img.ui.avatar.image(src='#{profilePicture}')
-        .content
-          a.header
-            a(href="{{pathFor 'singlePerson'}}").header #{username}
-          .description Status
+      tr
+        td
+          h4.ui.image.header
+            if fullname
+              img.ui.mini.rounded.image(src='#{profile.picture}')
+            else
+              img.ui.mini.rounded.image(src='/CO|OPEN_Logo.png')
+            a(href="{{pathFor 'singlePerson'}}")
+              .content
+                if fullname
+                  | #{fullname}
+                else
+                  | #{_id}
+                .sub.header
+                  if verified
+                    | verified via Facebook
+                  else
+                    | not verified yet
+        td #{account}
+        td #{gbi}
+

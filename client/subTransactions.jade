@@ -1,0 +1,10 @@
+template(name="subTransactions")
+  .ui.feed
+    each transactions
+      .event
+        .label
+          img(src='/CO|OPEN_Logo.png')
+        .content
+          .date #{createdAt}
+          .summary
+            p Received #{amount} from #{from}

@@ -1,9 +1,17 @@
 Template.people.helpers
   users: ->
-    Meteor.users.find()
-  username: ->
-    Meteor.users.findOne(@_id).profile.name
+    Meteor.users.find {},
+      sort:
+        account: -1
+  fullname: ->
+    @.profile.name
   profilePicture: ->
-    Meteor.users.findOne(@_id).profile.picture
+    @.profile.picture
   peopleCount: ->
     Meteor.users.find().count()
+  peopleVerified: ->
+    Meteor.users.find({verified: true}).count()
+  account: ->
+    @account.toFixed(4)
+  gbi: ->
+    @gbi.toFixed(10)

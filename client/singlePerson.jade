@@ -1,6 +1,20 @@
 template(name='singlePerson')
   h2.ui.header
-    img.ui.circular.image(src='#{profilePicture}')
+    img.ui.circular.image(src='#{profile.picture}')
     .content
-      | #{username}
-      .sub.header Status
+      | #{profile.name}
+      .sub.header #{account}
+
+  .ui.feed
+    each transactions
+      .event
+        .label
+        .content
+          .date #{createdAt}
+          .summary
+            a Samuel Andert
+            |  transfered #{amount} to #{receiver}
+
+
+
+

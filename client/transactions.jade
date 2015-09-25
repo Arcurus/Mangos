@@ -1,0 +1,22 @@
+template(name='transactions')
+  h3 Transactions
+  form.addTransaction
+    input(type="text", name="amount", placeholder="amount")
+    +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="to Person")
+    input(type="submit", name="Transfer")
+
+  .ui.feed
+    each transactions
+      .event
+        .label
+          img(src='/CO|OPEN_Logo.png')
+        .content
+          .date #{createdAt}
+          .summery
+            if username
+              | #{username} transferred #{amount} to #{receiver}
+            else
+              | #{_id} transferred #{amount} to #{receiver}
+
+template(name='standardLegends')
+  | #{profile.name} #{_id}

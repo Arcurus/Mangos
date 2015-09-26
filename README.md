@@ -7,6 +7,7 @@ curl https://install.meteor.com/ | sh
 github clone https://github.com/Samsemilio/FreiCoinWCD.git  
 
 3.Go into the cloned project folder   
+
 4.Start meteor with:  
 meteor  
 

@@ -19,7 +19,7 @@ template(name='people')
                 if fullname
                   | #{fullname}
                 else
-                  | #{name} #{_id}
+                  | #{name} (#{_id})
                 .sub.header
                   if verified
                     | has been verified

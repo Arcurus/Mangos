@@ -1,8 +1,8 @@
 template(name='transactions')
   h3 Transactions
-  form.addTransaction
+  form.addTransaction#transfer
     input(type="text", name="amount", placeholder="amount")
-    +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="to Person")
+    +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Person" required='')
     input(type="submit", name="Transfer")
 
   .ui.feed

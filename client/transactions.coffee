@@ -3,6 +3,8 @@ Template.transactions.helpers
     Transactions.find {},
       sort:
         createdAt: -1
+  selectedPerson: ->
+    Session.get 'ReceiverId'
 
   settings: ->
     {
@@ -19,6 +21,16 @@ Template.transactions.helpers
     Meteor.users.findOne(@.from).profile.name
   receiver: ->
     Meteor.users.findOne(@.receiver).profile.name
+
+Template.transactions.onRendered ->
+  $('#transfer').validate
+    rules:
+      amount:
+        required: true
+        min: 0
+        number: true
+        max: (event) ->
+          Meteor.user().account
 
 Template.transactions.events
   'autocompleteselect input': (event, template, doc) ->

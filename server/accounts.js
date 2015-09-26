@@ -6,6 +6,7 @@ Accounts.onCreateUser(function(options, user) {
   user.account = 0;
   user.verified = false;
   user.gbi = 0;
+  user.name = "Anonymous";
   return user;
 });
 

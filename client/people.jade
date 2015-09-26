@@ -13,7 +13,7 @@ template(name='people')
             if fullname
               img.ui.mini.rounded.image(src='#{profile.picture}')
             else
-              img.ui.mini.rounded.image(src='/CO|OPEN_Logo.png')
+              img.ui.mini.rounded.image(src='/logo.png')
             a(href="{{pathFor 'singlePerson'}}")
               .content
                 if fullname
@@ -22,7 +22,7 @@ template(name='people')
                   | #{_id}
                 .sub.header
                   if verified
-                    | verified via Facebook
+                    | has been verified
                   else
                     | not verified yet
         td #{account}

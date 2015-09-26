@@ -1,5 +1,5 @@
 totalMoney = 100000000
-demurrageFee = 0.1
+demurrageFee = 0.2
 gbiPerSecond = 365 * 24 * 60 * 60
 
 #Distribute the BasicIncome

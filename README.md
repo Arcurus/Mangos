@@ -3,7 +3,7 @@
 1.Install Meteor (www.meteor.com)  
 curl https://install.meteor.com/ | sh  
 
-2.Clone the FreiCoinWCD repository  
+2.Clone the GBI repository  
 github clone https://github.com/Samsemilio/GBI.git  
 
 3.Go into the cloned project folder   

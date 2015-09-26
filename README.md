@@ -4,7 +4,7 @@
 curl https://install.meteor.com/ | sh  
 
 2.Clone the FreiCoinWCD repository  
-github clone https://github.com/Samsemilio/GBI1pas.git  
+github clone https://github.com/Samsemilio/GBI.git  
 
 3.Go into the cloned project folder   
 

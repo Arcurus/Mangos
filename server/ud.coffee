@@ -8,8 +8,10 @@ Meteor.setInterval (->
   sumPeople = Meteor.users.find(verified: true).count()
   peopleA = Meteor.users.find().fetch()
   sumPoints = 0
+  sumPercent = 0
   for allPeople, i in peopleA
     sumPoints += peopleA[i].points
+    sumPercent += peopleA[i].points
   if sumPoints is 0
     ud = (udSpark / sumPeople) / interval
   else

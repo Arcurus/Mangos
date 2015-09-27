@@ -9,8 +9,6 @@ Template.people.helpers
     Meteor.users.find().count()
   peopleVerified: ->
     Meteor.users.find(verified: true).count()
-  points: ->
-    @points.toFixed(6)
   percent: ->
     @percent.toFixed(6)
   mangos: ->

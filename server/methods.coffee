@@ -1,21 +1,21 @@
 Meteor.methods
   #Transfer Amount from Person to Project and back to Person
-  addTransaction: (receiver, amount) ->
+  addTransaction: (receiver, amountPoints) ->
     #Remove the Transaction amount from the Senders Account
     Meteor.users.update Meteor.userId(),
       $inc:
-        account: -amount
+        points: -amountPoints
 
     #Add the Transaction amount to Receiver Account
     Meteor.users.update receiver,
       $inc:
-        account: amount
+        points: amountPoints
 
     #Add the Transaction to the Transaction Collection for History
     Transactions.insert
       createdAt: new Date()
       createdBy: Meteor.userId()
-      amount: amount
+      points: amountPoints
       from: Meteor.userId()
       receiver: receiver
 

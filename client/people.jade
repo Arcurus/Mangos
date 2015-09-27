@@ -3,7 +3,6 @@ template(name='people')
     thead
       tr
         th Profiles (#{peopleCount}) verified (#{peopleVerified})
-        th Points
         th Percent
         th Mangos
     tbody
@@ -26,7 +25,6 @@ template(name='people')
                     | has been verified
                   else
                     | not verified yet
-        td #{points}
-        td #{percent}
+        td #{percent}%
         td #{mangos}
 

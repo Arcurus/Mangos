@@ -11,8 +11,8 @@ Template.transactions.helpers
       position: 'bottom'
       limit: 10
       rules: [ {
-        collection: Projects
-        field: 'name'
+        collection: Meteor.users
+        field: 'profile.name'
         matchAll: true
         template: Template.standardLegends
       } ]
@@ -40,7 +40,8 @@ Template.transactions.events
     event.preventDefault()
     receiver = Session.get 'ReceiverId'
     amount = Number(event.target.amount.value)
-    Meteor.call 'addTransaction', receiver, amount
+    amountPoints = amount * Meteor.user().points / Meteor.user().mangos
+    Meteor.call 'addTransaction', receiver, amountPoints
     return
 
 

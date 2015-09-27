@@ -14,7 +14,8 @@ Template.transactions.helpers
         collection: Meteor.users
         field: 'profile.name'
         matchAll: true
-        template: Template.standardLegends
+        template: Template.searchUserDropDown
+        noMatchTemplate: Template.noMatch
       } ]
     }
   username: ->
@@ -40,8 +41,8 @@ Template.transactions.events
     event.preventDefault()
     receiver = Session.get 'ReceiverId'
     amount = Number(event.target.amount.value)
-    amountPoints = amount * Meteor.user().points / Meteor.user().mangos
-    Meteor.call 'addTransaction', receiver, amountPoints
+    message = event.target.message.value
+    Meteor.call 'addTransaction', receiver, amount, message
     return
 
 

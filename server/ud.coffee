@@ -4,9 +4,9 @@ udSpark = 1
 #Yearly Growth
 udGrowth = 0.2
 #Linking the Relative Money to a fixed 1 Mango per Day
-mangoFactor = 365
+mangoFactor = 365 #EveryDay 1 Mango will be added to your account -> so every 10 seconds
 #Setting the timespeed
-interval = 365 * 24 #EveryHour
+interval = 365 * 24 # 1Sec is 1Hour
 
 #Distribute the UD
 Meteor.setInterval (->

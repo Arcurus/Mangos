@@ -1,6 +1,8 @@
 Meteor.methods
   #Transfer Amount from Person to Project and back to Person
-  addTransaction: (receiver, amountPoints) ->
+  addTransaction: (receiver, amount, message) ->
+    #Caculate the respective Points
+    amountPoints = amount * Meteor.user().points / Meteor.user().mangos
     #Remove the Transaction amount from the Senders Account
     Meteor.users.update Meteor.userId(),
       $inc:
@@ -15,8 +17,10 @@ Meteor.methods
     Transactions.insert
       createdAt: new Date()
       createdBy: Meteor.userId()
+      mangos: amount
       points: amountPoints
       from: Meteor.userId()
+      message: message
       receiver: receiver
 
   #Create new Project

@@ -1,22 +1,45 @@
 template(name='transactions')
   h3 Transactions
-  form.addTransaction#transfer
-    input(type="text", name="amount", placeholder="amount")
-    +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Person" required='')
-    input(type="submit", name="Transfer")
+  .ui.stackable.two.column.grid
 
-  .ui.feed
-    each transactions
-      .event
-        .label
-          img(src='/logo.png')
-        .content
-          .date #{createdAt}
-          .summery
-            if username
-              | #{username} transferred #{amount} to #{receiver}
-            else
-              | #{_id} transferred #{amount} to #{receiver}
+    .column
+      form.ui.form.addTransaction#transfer
+        .field
+          label Transfer
+          .two.fields
+            .field
+              input(type="text", name="amount", placeholder="Choose the Amount of Mangos to Send")
+            .field.selection.dropdown
+              +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver" required='')
 
-template(name='standardLegends')
-  | #{profile.name} #{_id}
+        .field
+          label Message
+          input.field(type="text", name="message", placeholder="message")
+
+        button.ui.button(type='submit') Transfer
+
+    .column
+      .ui.feed
+        each transactions
+          .event
+            .label
+              img(src='/logo.png')
+            .content
+              .date #{createdAt}
+              .summery
+                if username
+                  | #{username} transferred #{mangos} to #{receiver}
+                else
+                  | #{_id} transferred #{mangos} to #{receiver}
+              .extra.text
+                | #{message}
+
+template(name='searchUserDropDown')
+  .menu
+    .item
+      img.ui.mini.avatar.image(src='#{profile.picture}')
+      | #{profile.name}
+
+ template(name='noMatch')
+  .menu
+    .item No Person with this name found

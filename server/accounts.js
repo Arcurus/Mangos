@@ -7,6 +7,7 @@ Accounts.onCreateUser(function(options, user) {
   else {
     user.verified = false;
   }
+  user.years = 1;
   user.points = 0;
   user.percent = 0;
   user.mangos = 0;

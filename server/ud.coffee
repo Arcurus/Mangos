@@ -26,6 +26,7 @@ Meteor.setInterval (->
       Meteor.users.update peopleA[j]._id,
         $inc:
           points: ud
+          years: 0.00011416
         $set:
           percent: percent
           mangos: mangos

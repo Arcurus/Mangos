@@ -1,10 +1,17 @@
 template(name='layout')
+  .ui.icon.message
+    i.notched.circle.loading.icon
+    .content
+      .header
+        | Attention: Alpha Prototype
+      p This is extrem work in progress, therefore Mangos and People can magically disappear at any time, eaten up by hungry bugs! If eaten don't hesitate to Re-Enter again, new Mangos will be pilling up on your Sofa soon.
 
   .ui.secondary.pointing.menu
+    .ui.item
+      +loginButtons
     a(href="/").item HOME
     a(href="/people").item PEOPLE
     a(href="/transactions").item TRANSACTIONS
-    <!--a(href="/projects").item PROJECTS-->
 
   #main
     +yield

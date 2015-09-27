@@ -1,19 +1,41 @@
 template(name='home')
-  +loginButtons
-  .ui.teal.message
-    p MANGO is a research game, demonstrating the power of a "relational currency", by removing the concept of dept and embracing a universal basic income.
-    b Overview:
-    br
-    | Universal Dividend: 20% (Or 1/60 per month of the per Persons average from the total Moneyvolume)
-    br
-    | MangoFactor: You get every hour one Mango distributed, taking a total of 5 years to get all your Mangos to reach average
-    br
-    | Speed: 1hour = 1sec
-    | Inspired by: http://ucoin.io/ and http://freico.in
-    br
-    b Github:
-    br
-    | http://github.com/Samsemilio/Mangos
-    h4 And now enjoy trading your Mangos!
+  .ui.statistics
+    .statistic
+      .value #{totalVerifiedPeople}
+      .label verified People
+
+    .statistic
+      .value #{totalTransactions}
+      .label Transactions
+
+  h2.ui.header
+    .content Empowering Your Creativity
+      .sub.header An open source Co-Creation Platform in the works by the folks from
+        a(href="http://twitter.com/CO_O_PEN") CO|OPEN
+
+  | On the prototype we are using our testcurrency MANGOS to demonstrate the power of a "relational currency", by removing the concept of dept and embracing a universal basic income, inspired by the "Relational Money Theory". If you want to learn more about the concept of Relational Money and Demurrage Fee get engaged on
+  a(href="http://ucoin.io/") ucoin.io
+  | and
+  a(href="http://freico.in/") freico.in
+
+  h3 Information & Overview
+  | A relational currency is tightly coupled to its members and money distribution is based on the amount of
+  b real and unique
+  | people in a network of trust, a reason proper identification is indispensable. For simplicity in the beginning, you will have to login with facebook as a substitute for your verification process. On the long run this will be exchanged with a more complex and true webOfTrust certification method.
+  .ui.list
+    .item
+      .header Universal Dividend: 20%
+      |  Bringing you every month 1/60 from a Persons average of the total Moneyvolume
+    .item
+      .header MangoFactor: 1 Mango a day (Relational)
+      |  This is your Unit and relational fixpoint, in order to develop your comparision skill between your own mountain of Mangos and the Mango hills of others
+    .item
+      .header Speed
+      |  In this prototype we use for the demonstration purpose a speeding up factor, setting 1hour to a 1sec interval.
+    .item
+      .header Github
+      |  http://github.com/Samsemilio/Mangos
+
+  h4 And now enjoy giving your Mangos to your friends, bevor our Bugs are eating them up!
 
 

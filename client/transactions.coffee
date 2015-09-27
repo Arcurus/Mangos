@@ -27,7 +27,7 @@ Template.transactions.onRendered ->
     rules:
       amount:
         required: true
-        min: 0
+        min: 0.0001
         number: true
         max: (event) ->
           Meteor.user().mangos

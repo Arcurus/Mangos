@@ -13,3 +13,5 @@ Template.people.helpers
     @percent.toFixed(6)
   mangos: ->
     @mangos.toFixed(3)
+   points: ->
+    @points.toFixed(6)

@@ -1,17 +1,20 @@
+#Universal Dividend Settings
+#Initial reference
 udSpark = 1
+#Yearly Growth
 udGrowth = 0.2
-mangoFactor = 8760
-interval = 365 * 24
+#Linking the Relative Money to a fixed 1 Mango per Hour
+mangoFactor = 365 * 24
+#Setting the timespeed
+interval = 365 * 24 #EveryHour
 
 #Distribute the UD
 Meteor.setInterval (->
   sumPeople = Meteor.users.find(verified: true).count()
   peopleA = Meteor.users.find().fetch()
   sumPoints = 0
-  sumPercent = 0
   for allPeople, i in peopleA
     sumPoints += peopleA[i].points
-    sumPercent += peopleA[i].points
   if sumPoints is 0
     ud = (udSpark / sumPeople) / interval
   else
@@ -32,6 +35,5 @@ Meteor.setInterval (->
         $set:
           points: 0
           mangos: 0
-          verified: true
 
 ), 1000

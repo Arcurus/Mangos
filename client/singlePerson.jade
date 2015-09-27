@@ -3,7 +3,7 @@ template(name='singlePerson')
     img.ui.circular.image(src='#{profile.picture}')
     .content
       | #{profile.name}
-      .sub.header #{account}
+      .sub.header #{mangos}
 
   .ui.feed
     each transactions
@@ -13,7 +13,7 @@ template(name='singlePerson')
           .date #{createdAt}
           .summary
             a Samuel Andert
-            |  transfered #{amount} to #{receiver}
+            |  transfered #{points} to #{receiver}
 
 
 

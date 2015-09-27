@@ -1,5 +1,5 @@
 Meteor.methods
-  #Transfer Amount from Person to Bundle and back to Person
+  #Transfer Amount from Person to Project and back to Person
   addTransaction: (receiver, amount) ->
     #Remove the Transaction amount from the Senders Account
     Meteor.users.update Meteor.userId(),

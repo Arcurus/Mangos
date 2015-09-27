@@ -3,28 +3,30 @@ template(name='people')
     thead
       tr
         th Profiles (#{peopleCount}) verified (#{peopleVerified})
-        th Account
-        th BasicIncome
+        th Points
+        th Percent
+        th Mangos
     tbody
     each users
       tr
         td
           h4.ui.image.header
-            if fullname
+            if profile.name
               img.ui.mini.rounded.image(src='#{profile.picture}')
             else
               img.ui.mini.rounded.image(src='/logo.png')
             a(href="{{pathFor 'singlePerson'}}")
               .content
-                if fullname
-                  | #{fullname}
+                if profile.name
+                  | #{profile.name}
                 else
-                  | #{name} (#{_id})
+                  | (#{_id})
                 .sub.header
                   if verified
                     | has been verified
                   else
                     | not verified yet
-        td #{account}
-        td #{gbi}
+        td #{points}
+        td #{percent}
+        td #{mangos}
 

@@ -11,8 +11,8 @@ Template.transactions.helpers
       position: 'bottom'
       limit: 10
       rules: [ {
-        collection: Meteor.users
-        field: 'profile.name'
+        collection: Projects
+        field: 'name'
         matchAll: true
         template: Template.standardLegends
       } ]
@@ -30,7 +30,7 @@ Template.transactions.onRendered ->
         min: 0
         number: true
         max: (event) ->
-          Meteor.user().account
+          Meteor.user().mangos
 
 Template.transactions.events
   'autocompleteselect input': (event, template, doc) ->

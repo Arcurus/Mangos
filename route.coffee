@@ -7,9 +7,9 @@ Router.map ->
     data: ->
       Meteor.users.findOne @params._id
   @route 'transactions', path: '/transactions'
- ### @route 'projects', path: '/projects'
+  @route 'projects', path: '/projects'
   @route 'singleProject',
     path: '/projects/:_id'
     data: ->
       Projects.findOne @params._id
-      ###
+

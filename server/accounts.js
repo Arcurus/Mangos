@@ -3,10 +3,10 @@ Accounts.onCreateUser(function(options, user) {
     options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
     user.profile = options.profile;
   }
-  user.account = 0;
+  user.points = 0;
+  user.percent = 0;
+  user.mangos = 0;
   user.verified = false;
-  user.gbi = 0;
-  user.name = "Anonymous";
   return user;
 });
 

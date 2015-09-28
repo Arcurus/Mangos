@@ -1,5 +1,7 @@
 ###Gettings Started
+Live Version at: http://mangos.meteor.com  
 
+To Install on your own mashine  
 1.Install Meteor (www.meteor.com)  
 curl https://install.meteor.com/ | sh  
 

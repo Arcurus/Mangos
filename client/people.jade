@@ -18,10 +18,7 @@ template(name='people')
               img.ui.mini.rounded.image(src='/logo.png')
             a(href="{{pathFor 'singlePerson'}}")
               .content
-                if profile.name
-                  | #{profile.name}
-                else
-                  | (#{_id})
+                | #{username}
                 .sub.header
                   if verified
                     | has been verified

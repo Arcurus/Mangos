@@ -12,16 +12,16 @@ Template.transactions.helpers
       limit: 10
       rules: [ {
         collection: Meteor.users
-        field: 'profile.name'
+        field: 'username'
         matchAll: true
         template: Template.searchUserDropDown
         noMatchTemplate: Template.noMatch
       } ]
     }
   username: ->
-    Meteor.users.findOne(@.from).profile.name
+    Meteor.users.findOne(@.from).username
   receiver: ->
-    Meteor.users.findOne(@.receiver).profile.name
+    Meteor.users.findOne(@.receiver).username
 
 Template.transactions.onRendered ->
   $('#transfer').validate

@@ -1,6 +1,8 @@
 Router.configure layoutTemplate: 'layout'
 Router.map ->
   @route 'people', path: '/people'
+  @route 'register', path: '/register'
+  @route 'login', path: '/login'
   @route 'home', path: '/'
   @route 'singlePerson',
     path: '/people/:_id'
@@ -13,3 +15,11 @@ Router.map ->
     data: ->
       Projects.findOne @params._id
 
+#Redirect User when not Loggedin to the home template
+Router.onBeforeAction (->
+  if !Meteor.userId()
+    @render 'login'
+  else
+    @next()
+  return
+), except: [ 'register' ]

@@ -2,15 +2,13 @@ Accounts.onCreateUser(function(options, user) {
   if (options.profile) {
     options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
     user.profile = options.profile;
-    user.verified = true;
-  }
-  else {
-    user.verified = false;
+    user.username = user.services.facebook.first_name + " " + user.services.facebook.last_name;
   }
   user.years = 1;
   user.points = 0;
   user.percent = 0;
   user.mangos = 0;
+  user.verified = true;
   return user;
 });
 

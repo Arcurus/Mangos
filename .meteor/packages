@@ -8,7 +8,6 @@ mquandalle:jade
 coffeescript
 iron:router
 stylus
-accounts-facebook
 semantic:ui
 insecure
 flemay:less-autoprefixer
@@ -29,7 +28,10 @@ random
 ejson
 spacebars
 check
-accounts-ui
 houston:admin
 themeteorchef:jquery-validation
 service-configuration
+accounts-password
+accounts-facebook
+accounts-github
+http

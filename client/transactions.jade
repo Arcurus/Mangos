@@ -29,16 +29,17 @@ template(name='transactions')
               .summery
                 if username
                   | #{username} transferred #{mangos} to #{receiver}
-                else
-                  | #{_id} transferred #{mangos} to #{receiver}
               .extra.text
                 | #{message}
 
 template(name='searchUserDropDown')
   .menu
     .item
-      img.ui.mini.avatar.image(src='#{profile.picture}')
-      | #{profile.name}
+      if profile.picture
+        img.ui.mini.avatar.image(src='#{profile.picture}')
+      else
+        img.ui.mini.avatar.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
+      | #{username}
 
  template(name='noMatch')
   .menu

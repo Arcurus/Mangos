@@ -1,0 +1,21 @@
+template(name='register')
+  style.
+    body {
+      background-color: #fafafa;
+      padding-top: 10%;
+    }
+  .ui.three.column.centered.middle.aligned.stackable.grid
+    .column
+      form.ui.form.login
+        .field
+          .ui.left.icon.input
+            input(type="text", name="username", placeholder="Choose your Name")
+            i.user.icon
+        .field
+          .ui.left.icon.input
+            input(type='password', name='password', placeholder="Choose your Password")
+            i.lock.icon
+        button.ui.button.fluid(type='submit') Register
+
+      .ui.divider.horizontal
+        a(href="/login") BACK TO LOGIN

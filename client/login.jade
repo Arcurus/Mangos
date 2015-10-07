@@ -1,0 +1,24 @@
+template(name='login')
+  style.
+    body {
+      background-color: #fafafa;
+      padding-top: 10%;
+    }
+  .ui.three.column.centered.middle.aligned.stackable.grid
+    .column
+      .ui.horizontal.divider LOGIN WITH
+      .ui.button.blue.fluid.facebook-login  Facebook
+      .ui.horizontal.divider OR
+      form.ui.form.login
+        .field
+          .ui.left.icon.input
+            input(type="text", name="username", placeholder="username")
+            i.user.icon
+        .field
+          .ui.left.icon.input
+            input(type='password', name='password', placeholder="password")
+            i.lock.icon
+        button.ui.button.fluid(type='submit') Login
+
+      .ui.divider.horizontal
+        a(href="/register") REGISTER NOW

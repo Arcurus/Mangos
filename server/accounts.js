@@ -4,11 +4,12 @@ Accounts.onCreateUser(function(options, user) {
     user.profile = options.profile;
     user.username = user.services.facebook.first_name + " " + user.services.facebook.last_name;
   }
-  user.years = 1;
+  user.years = 0;
   user.points = 0;
   user.percent = 0;
   user.mangos = 0;
-  user.verified = true;
+  user.verified = false;
+  user.verifiedAt = -5;
   return user;
 });
 

@@ -4,7 +4,7 @@ udSpark = 1
 #Yearly Growth
 udGrowth = 0.2
 #Linking the Relative Money to a fixed 1 Mango per Day
-mangoFactor = 365 #EveryDay 1 Mango will be added to your account -> so every 24 seconds
+mangoFactor = 365 #EveryDay 24 Mango will be added to your account
 #Setting the timespeed
 interval = 365 * 24 # 1Sec is 1Hour
 
@@ -20,9 +20,11 @@ Meteor.setInterval (->
   else
     ud = (udSpark + (udGrowth * sumPoints / sumPeople)) / interval
   for person, j in peopleA
+    timeSinceVerified = peopleA[j].years - peopleA[j].verifiedAt
     if peopleA[j].verified is true
       mangos = peopleA[j].points * mangoFactor / ud / interval
       percent = peopleA[j].points * 100 / sumPoints
+
       Meteor.users.update peopleA[j]._id,
         $inc:
           points: ud
@@ -31,10 +33,23 @@ Meteor.setInterval (->
           percent: percent
           mangos: mangos
 
+      if timeSinceVerified > 10
+        Meteor.users.update peopleA[j]._id,
+          $set:
+            verified: false
+
     else
       Meteor.users.update peopleA[j]._id,
         $set:
           points: 0
           mangos: 0
+          percent: 0
+        $inc:
+          years: 0.00011416
+
+      if timeSinceVerified < 10
+        Meteor.users.update peopleA[j]._id,
+          $set:
+            verified: true
 
 ), 1000

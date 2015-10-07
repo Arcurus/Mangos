@@ -3,15 +3,21 @@ Meteor.methods
   addTransaction: (receiver, amount, message) ->
     #Caculate the respective Points
     amountPoints = amount * Meteor.user().points / Meteor.user().mangos
+    currentAge = Meteor.user().years
     #Remove the Transaction amount from the Senders Account
     Meteor.users.update Meteor.userId(),
       $inc:
         points: -amountPoints
+      $set:
+        verifiedAt: currentAge
 
+    currentAge = Meteor.users.findOne(receiver).years
     #Add the Transaction amount to Receiver Account
     Meteor.users.update receiver,
       $inc:
         points: amountPoints
+      $set:
+        verifiedAt: currentAge
 
     #Add the Transaction to the Transaction Collection for History
     Transactions.insert

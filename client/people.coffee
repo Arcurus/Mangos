@@ -10,10 +10,12 @@ Template.people.helpers
   peopleVerified: ->
     Meteor.users.find(verified: true).count()
   percent: ->
-    @percent.toFixed(6)
+    @percent.toFixed(3)
   mangos: ->
     @mangos.toFixed(3)
   points: ->
-    @points.toFixed(6)
+    @points.toFixed(3)
   years: ->
     @years.toFixed(3)
+  verifiedAt: ->
+    @verifiedAt.toFixed(3)

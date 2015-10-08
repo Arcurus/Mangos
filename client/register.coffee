@@ -11,3 +11,10 @@ Template.register.events 'submit form': (event) ->
       Router.go 'home'
       # Redirect user if registration succeeds
     return
+
+  'click .facebook-login': (event) ->
+    Meteor.loginWithFacebook {}, (err) ->
+      if err
+        error.reason
+      else
+        Router.go 'home'

@@ -1,8 +1,11 @@
 template(name='singlePerson')
   h2.ui.header
-    img.ui.circular.image(src='#{profile.picture}')
+    if profile.picture
+      img.ui.circular.image(src='#{profile.picture}')
+    else
+      img.ui.circular.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
     .content
-      | #{profile.name}
+      | #{username}
       .sub.header #{mangos}
 
   .ui.feed
@@ -12,8 +15,8 @@ template(name='singlePerson')
         .content
           .date #{createdAt}
           .summary
-            a Samuel Andert
-            |  transfered #{points} to #{receiver}
+            a
+            | #{sender.username} transfered #{mangos} Mangos to #{receiver.username}
 
 
 

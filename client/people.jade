@@ -16,7 +16,7 @@ template(name='people')
             if profile.name
               img.ui.mini.rounded.image(src='#{profile.picture}')
             else
-              img.ui.mini.rounded.image(src='/logo.png')
+              img.ui.mini.rounded.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
             a(href="{{pathFor 'singlePerson'}}")
               .content
                 | #{username}

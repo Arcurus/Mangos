@@ -1,33 +1,28 @@
 Meteor.methods
   #Transfer Amount from Person to Project and back to Person
   addTransaction: (receiver, amount, message) ->
-    #Caculate the respective Points
-    amountPoints = amount * Meteor.user().points / Meteor.user().mangos
-    currentAge = Meteor.user().years
-    #Remove the Transaction amount from the Senders Account
-    Meteor.users.update Meteor.userId(),
-      $inc:
-        points: -amountPoints
-      $set:
-        verifiedAt: currentAge
+    if Meteor.user().verified
+      #Caculate the respective Points
+      amountPoints = amount * Meteor.user().points / Meteor.user().mangos
+      #Remove the Transaction amount from the Senders Account
+      Meteor.users.update Meteor.userId(),
+        $inc:
+          points: -amountPoints
 
-    currentAge = Meteor.users.findOne(receiver).years
-    #Add the Transaction amount to Receiver Account
-    Meteor.users.update receiver,
-      $inc:
+      #Add the Transaction amount to Receiver Account
+      Meteor.users.update receiver,
+        $inc:
+          points: amountPoints
+
+      #Add the Transaction to the Transaction Collection for History
+      Transactions.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        mangos: amount
         points: amountPoints
-      $set:
-        verifiedAt: currentAge
-
-    #Add the Transaction to the Transaction Collection for History
-    Transactions.insert
-      createdAt: new Date()
-      createdBy: Meteor.userId()
-      mangos: amount
-      points: amountPoints
-      from: Meteor.userId()
-      message: message
-      receiver: receiver
+        from: Meteor.userId()
+        message: message
+        receiver: receiver
 
   #Create new Project
   addProjects: (name) ->
@@ -41,3 +36,19 @@ Meteor.methods
         percent: 100
       ]
 
+  #Verify a Person
+  verifyPerson: (person) ->
+    currentAge = Meteor.users.findOne(person).years
+    if person != Meteor.userId()
+      Meteor.users.update person,
+        $set:
+          verifiedAt: currentAge
+    else
+      console.log "You can not verify yourself"
+
+    #Add the Verification to the Verification Collection for History
+    Verifications.insert
+      createdAt: new Date()
+      createdBy: Meteor.userId()
+      verifiedPerson: person
+      verifiedAt: currentAge

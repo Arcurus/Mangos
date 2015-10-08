@@ -5,9 +5,9 @@ template(name='people')
         th Profiles (#{peopleCount}) verified (#{peopleVerified})
         th Mangos
         th Percent
-        th Points
-        th Age in Years
-        th Last verification
+        th Age (years)
+        if userVerified
+          th Verify
     tbody
     each users
       tr
@@ -22,12 +22,12 @@ template(name='people')
                 | #{username}
                 .sub.header
                   if verified
-                    | has been verified
+                    | #{timeTillExpiration} years till expiration
                   else
                     | not verified yet
         td #{mangos}
         td #{percent}%
-        td #{points}
         td #{years}
-        td #{verifiedAt}
-
+        if userVerified
+          td
+            button.ui.mini.button.verify Verify

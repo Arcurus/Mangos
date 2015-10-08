@@ -4,7 +4,6 @@ Template.transactions.helpers
       sort:
         createdAt: -1
 
-
   settings: ->
     {
       position: 'bottom'

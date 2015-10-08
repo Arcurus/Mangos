@@ -13,9 +13,18 @@ Template.people.helpers
     @percent.toFixed(3)
   mangos: ->
     @mangos.toFixed(3)
-  points: ->
-    @points.toFixed(3)
   years: ->
     @years.toFixed(3)
-  verifiedAt: ->
-    @verifiedAt.toFixed(3)
+  userVerified: ->
+    Meteor.user().verified
+  timeTillExpiration: ->
+    time = 10 - (@years - @verifiedAt)
+    return time.toFixed(2)
+
+Template.people.events
+  'click .verify': ->
+    Meteor.call 'verifyPerson' , @._id
+
+
+
+

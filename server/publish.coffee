@@ -7,3 +7,6 @@ Meteor.publish 'Transactions', ->
 #Publish all Projects
 Meteor.publish 'Projects', ->
   Projects.find()
+#Publish all Verifications
+Meteor.publish 'Verifications', ->
+  Verifications.find()

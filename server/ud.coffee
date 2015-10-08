@@ -33,7 +33,7 @@ Meteor.setInterval (->
           percent: percent
           mangos: mangos
 
-      if timeSinceVerified > 10
+      if timeSinceVerified > 30
         Meteor.users.update peopleA[j]._id,
           $set:
             verified: false
@@ -47,7 +47,7 @@ Meteor.setInterval (->
         $inc:
           years: 0.00011416
 
-      if timeSinceVerified < 10
+      if timeSinceVerified < 30
         Meteor.users.update peopleA[j]._id,
           $set:
             verified: true

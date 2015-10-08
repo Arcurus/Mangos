@@ -1,0 +1,11 @@
+template(name='verifications')
+  h3 Verifications
+  .ui.feed
+    each verifications
+      .event
+        .label
+          img(src='/logo.png')
+        .content
+          .date #{createdAt}
+          .summery
+            | #{createdBy} verified #{verifiedPerson} at age #{verifiedAt}

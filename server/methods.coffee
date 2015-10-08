@@ -43,12 +43,13 @@ Meteor.methods
       Meteor.users.update person,
         $set:
           verifiedAt: currentAge
+       #Add the Verification to the Verification Collection for History
+      Verifications.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        verifiedPerson: person
+        verifiedAt: currentAge
     else
       console.log "You can not verify yourself"
 
-    #Add the Verification to the Verification Collection for History
-    Verifications.insert
-      createdAt: new Date()
-      createdBy: Meteor.userId()
-      verifiedPerson: person
-      verifiedAt: currentAge
+

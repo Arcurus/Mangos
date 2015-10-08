@@ -16,3 +16,10 @@ Template.login.events
         error.reason
       else
         Router.go 'home'
+
+  'click .github-login': (event) ->
+    Meteor.loginWithGithub {}, (err) ->
+      if err
+        error.reason
+      else
+        Router.go 'home'

@@ -3,8 +3,7 @@ Template.transactions.helpers
     Transactions.find {},
       sort:
         createdAt: -1
-  selectedPerson: ->
-    Session.get 'ReceiverId'
+
 
   settings: ->
     {
@@ -32,6 +31,9 @@ Template.transactions.onRendered ->
         number: true
         max: (event) ->
           Meteor.user().mangos
+      receiver:
+        required: true
+        goodReceiver: true
 
 Template.transactions.events
   'autocompleteselect input': (event, template, doc) ->
@@ -43,6 +45,10 @@ Template.transactions.events
     amount = Number(event.target.amount.value)
     message = event.target.message.value
     Meteor.call 'addTransaction', receiver, amount, message
+    Session.set 'ReceiverId', null
+    event.target.receiver.value = null
+    event.target.message.value = null
+    event.target.amount.value = null
     return
 
 

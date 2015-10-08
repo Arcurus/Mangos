@@ -10,7 +10,7 @@ template(name='transactions')
             .field
               input(type="text", name="amount", placeholder="Choose the Amount of Mangos to Send")
             .field.selection.dropdown
-              +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver" required='')
+              +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver")
 
         .field
           label Message

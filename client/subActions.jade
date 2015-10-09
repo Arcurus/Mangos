@@ -1,21 +1,32 @@
 template(name="subActions")
-  h3 Actions
-    form.ui.form.addAction
-      .field
-        .two.fields
-          .field
-            input(type="text", name="name", placeholder="name")
-          .field
-            input(type="text", name="min", placeholder="min")
-      button.ui.button(type='submit') Add Action
+  .ui.stackable.grid
+    .four.wide.column
+      form.ui.form.addAction
+        .label Action
+        .field
+          input(type="text", name="name", placeholder="describe you action")
+        .label time
+        .field
+          input(type="text", name="min", placeholder="your minutes spended")
+        button.ui.button(type='submit') Add Action
 
-
-  .ui.feed
-    each actions
-      .event
-        .label
-          img(src='/logo.png')
-        .content
-          .date #{createdAt}
-          .summary
-            p Minutes #{min} from #{createdBy} for #{name}
+    .twelve.wide.column
+      table.ui.very.basic.celled.table
+        thead
+          tr
+            th Person
+            th Time
+            th Action
+        tbody
+        each actions
+          tr
+            td
+              h4.ui.image.header
+                img.ui.mini.rounded.image(src='/logo.png')
+                a(href="{{pathFor 'singleAction'}}")
+                  .content
+                    | #{createdBy}
+                    .sub.header
+                      | #{createdAt}
+            td #{min} min
+            td #{name}

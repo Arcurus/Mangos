@@ -1,23 +1,26 @@
 template(name='projects')
-  h3 Projects
-  form.addProject
-    input(type="text", name="name", placeholder="name")
-    input(type="submit", name="Add")
+  .ui.stackable.grid
+    .four.wide.column
+      form.ui.form.addProject
+        .field
+          input(type="text", name="name", placeholder="Project name")
+        button.ui.button(type='submit') Create new Project
 
-  table.ui.very.basic.celled.table
-    thead
-      tr
-        th Name
-        th Time
-    tbody
-    each projects
-      tr
-        td
-          h4.ui.image.header
-            img.ui.mini.rounded.image(src='/logo.png')
-            a(href="{{pathFor 'singleProject'}}")
-              .content
-                | #{name}
-                .sub.header
-                  | #{createdBy}
-        td #{totalMin} min
+    .twelve.wide.column
+      table.ui.very.basic.celled.table
+        thead
+          tr
+            th Name
+            th Time
+        tbody
+        each projects
+          tr
+            td
+              h4.ui.image.header
+                img.ui.mini.rounded.image(src='/logo.png')
+                a(href="{{pathFor 'singleProject'}}")
+                  .content
+                    | #{name}
+                    .sub.header
+                      | #{createdBy}
+            td #{totalMin} min

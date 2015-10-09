@@ -1,36 +1,36 @@
 template(name='transactions')
-  h3 Transactions
-  .ui.stackable.two.column.grid
-
-    .column
+  .ui.stackable.grid
+    .four.wide.column
       form.ui.form.addTransaction#transfer
         .field
-          label Transfer
-          .two.fields
-            .field
-              input(type="text", name="amount", placeholder="Choose the Amount of Mangos to Send")
-            .field.selection.dropdown
-              +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver")
-
+          label Amount
+          input(type="text", name="amount", placeholder="Choose the Amount of Mangos to Send")
+        .field.selection.dropdown
+          label Receiver
+          +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver")
         .field
           label Message
-          input.field(type="text", name="message", placeholder="message")
+          input.field(type="text", name="message", placeholder="Add an optional message to your transaction")
 
         button.ui.button(type='submit') Transfer
 
-    .column
-      .ui.feed
+    .twelve.wide.column
+      table.ui.very.basic.celled.table
+        thead
+          tr
+            th Sender
+            th Mangos
+            th Receiver
+            th Date
+            th Message
+        tbody
         each transactions
-          .event
-            .label
-              img(src='/logo.png')
-            .content
-              .date #{createdAt}
-              .summery
-                if username
-                  | #{username} transferred #{mangos} to #{receiver}
-              .extra.text
-                | #{message}
+          tr
+            td #{username}
+            td #{mangos}
+            td #{receiver}
+            td #{createdAt}
+            td #{message}
 
 template(name='searchUserDropDown')
   .menu

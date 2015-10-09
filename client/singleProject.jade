@@ -1,18 +1,28 @@
 template(name='singleProject')
+  .ui.statistics
+    .statistic
+      .value #{totalMin}
+      .label total Min
+
+    .statistic
+      .value #{totalPeople} 1
+      .label total People
+
   h2.ui.header
-    img.ui.circular.image(src='/logo.png')
-    .content
-      | #{name}
-      .sub.header #{account}
+    .content #{name}
 
   .ui.grid
     .twelve.wide.column.streched
-      .ui.attached.tab.segment.active(data-tab="1")
+      .ui.attached.tab.segment.active(data-tab="actions")
+        +subActions
+      .ui.attached.tab.segment(data-tab="transactions")
         +subTransactions
-      .ui.attached.tab.segment(data-tab="2")
+      .ui.attached.tab.segment(data-tab="shares")
         +subShares
+
     .four.wide.column
       .ui.vertical.fluid.right.secondary.tabular.menu
-        a.item.active(data-tab="1") Transactions
-        a.item(data-tab="2") Shares
+        a.item.active(data-tab="actions") Actions
+        a.item(data-tab="transactions") Transactions
+        a.item(data-tab="shares") Shares
 

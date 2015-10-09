@@ -1,23 +1,23 @@
-template(name='projects')
-  h3 Projects
-  form.addProject
-    input(type="text", name="name", placeholder="name")
-    input(type="submit", name="Add")
+template(name='actions')
 
   table.ui.very.basic.celled.table
     thead
       tr
-        th Name
+        th Action
         th Time
+        th Projects
     tbody
-    each projects
+    each actions
       tr
         td
           h4.ui.image.header
             img.ui.mini.rounded.image(src='/logo.png')
-            a(href="{{pathFor 'singleProject'}}")
+            a(href="{{pathFor 'singleAction'}}")
               .content
                 | #{name}
                 .sub.header
                   | #{createdBy}
-        td #{totalMin} min
+        td #{min} min
+        td
+          each projects
+            a(href="{{pathFor 'singleProject'}}") #{name},

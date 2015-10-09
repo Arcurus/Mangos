@@ -4,6 +4,7 @@ Router.map ->
   @route 'register', path: '/register'
   @route 'login', path: '/login'
   @route 'home', path: '/'
+  @route 'actions', path: '/actions'
   @route 'verifications', path: '/verifications'
   @route 'singlePerson',
     path: '/people/:_id'
@@ -15,6 +16,10 @@ Router.map ->
     path: '/projects/:_id'
     data: ->
       Projects.findOne @params._id
+  @route 'singleAction',
+    path: '/actions/:_id'
+    data: ->
+      Actions.findOne @params._id
 
 
 #Redirect User when not Loggedin to the Login template

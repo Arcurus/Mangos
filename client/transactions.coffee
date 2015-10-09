@@ -25,11 +25,11 @@ Template.transactions.onRendered ->
   $('#transfer').validate
     rules:
       amount:
-        required: true
-        min: 0.0001
-        number: true
         max: (event) ->
           Meteor.user().mangos
+        number: true
+        required: true
+        min: 0
       receiver:
         required: true
         goodReceiver: true

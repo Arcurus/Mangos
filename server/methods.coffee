@@ -30,11 +30,24 @@ Meteor.methods
       createdAt: new Date()
       createdBy: Meteor.userId()
       name: name
-      account: 0
-      shares: [
-        person: Meteor.userId()
-        percent: 100
-      ]
+      totalMin: 0
+      actions: []
+
+  addAction: (name, min, projectId) ->
+    actionId =
+      Actions.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        name: name
+        min: min
+        projects: [projectId]
+
+    Projects.update projectId,
+      $inc:
+        totalMin: min
+      $push:
+        actions: actionId
+
 
   #Verify a Person
   verifyPerson: (person) ->

@@ -10,3 +10,6 @@ Meteor.publish 'Projects', ->
 #Publish all Verifications
 Meteor.publish 'Verifications', ->
   Verifications.find()
+#Publish all ACtions
+Meteor.publish 'Actions', ->
+  Actions.find()

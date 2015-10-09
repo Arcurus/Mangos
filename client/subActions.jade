@@ -1,0 +1,21 @@
+template(name="subActions")
+  h3 Actions
+    form.ui.form.addAction
+      .field
+        .two.fields
+          .field
+            input(type="text", name="name", placeholder="name")
+          .field
+            input(type="text", name="min", placeholder="min")
+      button.ui.button(type='submit') Add Action
+
+
+  .ui.feed
+    each actions
+      .event
+        .label
+          img(src='/logo.png')
+        .content
+          .date #{createdAt}
+          .summary
+            p Minutes #{min} from #{createdBy} for #{name}

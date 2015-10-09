@@ -1,7 +1,7 @@
 Meteor.methods
   #Transfer Amount from Person to Project and back to Person
   addTransaction: (receiver, amount, message) ->
-    if Meteor.user().verified
+    if (Meteor.user().verified and amount <= Meteor.user().mangos)
       #Calculate the respective Points
       amountPoints = amount * Meteor.user().points / Meteor.user().mangos
       #Remove the Transaction amount from the Senders Account

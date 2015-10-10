@@ -30,3 +30,9 @@ Router.onBeforeAction (->
     @next()
   return
 ), except: [ 'register' ]
+
+
+#Set Session for active menu link
+Router.onAfterAction(() ->
+  Session.set('active', @route.getName())
+)

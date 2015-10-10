@@ -8,14 +8,15 @@ template(name='singleProject')
         +subActions
       .ui.attached.tab(data-tab="transactions")
         +subTransactions
-      .ui.attached.tab(data-tab="shares")
-        +subShares
+      .ui.attached.tab(data-tab="people")
+        +subPeople
 
     .three.wide.column
       .ui.vertical.fluid.right.secondary.menu
-        .item #{name}
+        .item
+          b #{name}
         a.item.active(data-tab="overview") Overview
         a.item(data-tab="actions") Actions
         a.item(data-tab="transactions") Transactions
-        a.item(data-tab="shares") Shares
+        a.item(data-tab="people") People
 

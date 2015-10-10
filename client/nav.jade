@@ -1,10 +1,10 @@
 template(name="nav")
   .ui.secondary.pointing.menu
-    a(href="/").item HOME
-    a(href="/people").item PEOPLE
-    a(href="/actions").item ACTIONS
-    a(href="/projects").item PROJECTS
-    a(href="/transactions").item TRANSACTIONS
-    a(href="/verifications").item VERIFICATIONS
-    if currentUser
-      a.logout(href="#").item LOGOUT
+    a(href="/" class="{{#if currentRouteIs 'home'}}active{{/if}}").item. HOME
+    a(href="/people" class="{{#if currentRouteIs 'people'}}active{{/if}}").item PEOPLE
+    a(href="/actions" class="{{#if currentRouteIs 'actions'}}active{{/if}}").item ACTIONS
+    a(href="/projects" class="{{#if currentRouteIs 'projects'}}active{{/if}}").item PROJECTS
+    a(href="/transactions" class="{{#if currentRouteIs 'transactions'}}active{{/if}}").item TRANSACTIONS
+    a(href="/verifications" class="{{#if currentRouteIs 'verifications'}}active{{/if}}").item VERIFICATIONS
+    .right.menu
+      a.logout(href="#").item Logout

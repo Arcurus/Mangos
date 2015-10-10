@@ -17,4 +17,4 @@ meteor
 
 6.Fork, Improve and make Pull-Requests
 
-7.Accepted Pull-Requests from the Master will be automatically deployed via Codeship
+7.Accepted Pull-Requests from the Master will be automatically deployed via Codeship 

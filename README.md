@@ -16,3 +16,5 @@ meteor
 5.Open localhost:3000 in your favorite browser and enjoy  
 
 6.Fork, Improve and make Pull-Requests
+
+7.Accepted Pull-Requests from the Master will be automatically deployed via Codeship

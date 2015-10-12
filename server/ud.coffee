@@ -6,7 +6,7 @@ udGrowth = 0.1
 #Linking the Relative Money to a fixed 10 Mangos per Day
 mangoFactor = (365 * 10) #EveryDay 10 Mangos will be added to your account
 #Setting the timespeed
-interval = (365 * 24 * 10) # 1Sec is 6min
+interval = (365 * 24 * 60) # 1Sec is 1min or 1min is 1h or 24min is 1day or 12h is 1month or 3.5 days is 1 year or 35days ~10 years
 
 #Distribute the UD
 Meteor.setInterval (->
@@ -28,12 +28,12 @@ Meteor.setInterval (->
       Meteor.users.update peopleA[j]._id,
         $inc:
           points: ud
-          years: interval
+          years: 0.000011415525
         $set:
           percent: percent
           mangos: mangos
 
-      if timeSinceVerified > 30
+      if timeSinceVerified > 5
         Meteor.users.update peopleA[j]._id,
           $set:
             verified: false
@@ -45,9 +45,9 @@ Meteor.setInterval (->
           mangos: 0
           percent: 0
         $inc:
-          years: interval
+          years: 0.000011415525
 
-      if timeSinceVerified < 30
+      if timeSinceVerified < 5
         Meteor.users.update peopleA[j]._id,
           $set:
             verified: true

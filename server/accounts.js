@@ -9,7 +9,7 @@ Accounts.onCreateUser(function(options, user) {
   user.percent = 0;
   user.mangos = 0;
   user.verified = false;
-  user.verifiedAt = -10;
+  user.verifiedAt = -5;
   return user;
 });
 

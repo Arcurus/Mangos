@@ -18,7 +18,7 @@ Template.people.helpers
   userVerified: ->
     Meteor.user().verified
   timeTillExpiration: ->
-    time = 30 - (@years - @verifiedAt)
+    time = 5 - (@years - @verifiedAt)
     return time.toFixed(2)
 
 Template.people.events

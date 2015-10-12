@@ -35,7 +35,7 @@
   // Configure environment
   "env": {
     "ROOT_URL": "http://localhost",
-    "PORT": 3000,
+    "PORT": 80,
     "METEOR_ENV": "production"
   },
 

@@ -1,12 +1,12 @@
 #Universal Dividend Settings
 #Initial reference
 udSpark = 1
-#Yearly Growth
+#Yearly Growth & Dividend
 udGrowth = 0.1
-#Linking the Relative Money to a fixed 1 Mango per Day
-mangoFactor = 365 #EveryDay 1 Mango will be added to your account
+#Linking the Relative Money to a fixed 10 Mangos per Day
+mangoFactor = (365 * 10) #EveryDay 10 Mangos will be added to your account
 #Setting the timespeed
-interval = 365 * 24 # 1Sec is 1Hour
+interval = (365 * 24 * 10) # 1Sec is 6min
 
 #Distribute the UD
 Meteor.setInterval (->
@@ -28,7 +28,7 @@ Meteor.setInterval (->
       Meteor.users.update peopleA[j]._id,
         $inc:
           points: ud
-          years: 0.00011416
+          years: interval
         $set:
           percent: percent
           mangos: mangos
@@ -45,7 +45,7 @@ Meteor.setInterval (->
           mangos: 0
           percent: 0
         $inc:
-          years: 0.00011416
+          years: interval
 
       if timeSinceVerified < 30
         Meteor.users.update peopleA[j]._id,

@@ -1,5 +1,5 @@
 ###Gettings Started
-Live Version at: http://mangos.meteor.com  
+Live Version at: http://mangos.liv.io
 
 To Install on your own mashine  
 1.Install Meteor (www.meteor.com)  

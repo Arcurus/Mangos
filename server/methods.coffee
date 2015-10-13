@@ -24,6 +24,39 @@ Meteor.methods
         message: message
         receiver: receiver
 
+  payProject: (projectId, amount, message) ->
+    if (Meteor.user().verified and amount <= Meteor.user().mangos)
+      #Calculate the respective Points
+      amountPoints = amount * Meteor.user().points / Meteor.user().mangos
+      #Remove the Transaction amount from the Senders Account
+      Meteor.users.update Meteor.userId(),
+        $inc:
+          points: -amountPoints
+
+      sharesA = Shares.find({project: projectId}).fetch()
+      totalMin = Projects.findOne(projectId).totalMin
+      for person, i in sharesA
+        #Add the Transaction amount to Receiver Account
+        addPoints = sharesA[i].min / totalMin * amountPoints
+        addMangos = sharesA[i].min / totalMin * amount
+        console.log addMangos
+        receiver = sharesA[i].createdBy
+        Meteor.users.update sharesA[i].createdBy,
+          $inc:
+            points: addPoints
+
+        #Add the Transaction to the Transactions Collection for History
+        Transactions.insert
+          createdAt: new Date()
+          createdBy: Meteor.userId()
+          mangos: addMangos
+          points: addPoints
+          from: Meteor.userId()
+          message: message
+          receiver: receiver
+          project: projectId
+
+
   #Create new Project
   addProjects: (name) ->
     Projects.insert

@@ -1,5 +1,14 @@
 template(name="subTransactions")
-  h3 Transactions
+  form.ui.form.payProject
+    .two.fields
+      .field
+        input(type="text", name="message", placeholder="optional message")
+      .field
+        .ui.input.action
+          input(type="text", name="amount", placeholder="choose amount")
+          button.ui.button(type='submit') Pay Now
+
+  .ui.divider
   .ui.feed
     each transactions
       .event
@@ -8,4 +17,4 @@ template(name="subTransactions")
         .content
           .date #{createdAt}
           .summary
-            p Received #{amount} from #{from}
+            p #{receiver} received #{mangos} from #{sender} over the #{project} project

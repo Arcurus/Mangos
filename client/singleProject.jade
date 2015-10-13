@@ -2,9 +2,7 @@ template(name='singleProject')
 
   .ui.grid
     .thirteen.wide.column.streched
-      .ui.attached.tab.active(data-tab="overview")
-        +subOverview
-      .ui.attached.tab(data-tab="actions")
+      .ui.active.attached.tab(data-tab="actions")
         +subActions
       .ui.attached.tab(data-tab="transactions")
         +subTransactions
@@ -15,8 +13,7 @@ template(name='singleProject')
       .ui.vertical.fluid.right.secondary.menu
         .item
           b #{name}
-        a.item.active(data-tab="overview") Overview
-        a.item(data-tab="actions") Actions
+        a.active.item(data-tab="actions") Actions
         a.item(data-tab="transactions") Transactions
         a.item(data-tab="people") People
 

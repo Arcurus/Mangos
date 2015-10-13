@@ -1,8 +1,10 @@
 Template.subActions.helpers
   actions: ->
-    actionA = []
-    for actions, i in @actions
-      Actions.findOne @actions[i]
+    Actions.find {project: @_id},
+      sort:
+        createdAt: -1
+  username: ->
+    Meteor.users.findOne(@createdBy).username
 
 Template.subActions.events
   'submit .addAction': (event) ->

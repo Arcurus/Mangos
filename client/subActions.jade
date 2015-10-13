@@ -1,32 +1,26 @@
 template(name="subActions")
-  .ui.stackable.grid
-    .four.wide.column
-      form.ui.form.addAction
-        .label Action
-        .field
-          input(type="text", name="name", placeholder="describe you action")
-        .label time
-        .field
+  form.ui.form.addAction
+    .two.fields
+      .field
+        input(type="text", name="name", placeholder="describe you action")
+      .field
+        .ui.input.action
           input(type="text", name="min", placeholder="your minutes spended")
-        button.ui.button(type='submit') Add Action
+          button.ui.button(type='submit') Add Action
 
-    .twelve.wide.column
-      table.ui.very.basic.celled.table
-        thead
-          tr
-            th Person
-            th Time
-            th Action
-        tbody
-        each actions
-          tr
-            td
-              h4.ui.image.header
-                img.ui.mini.rounded.image(src='/logo.png')
-                a(href="{{pathFor 'singleAction'}}")
-                  .content
-                    | #{createdBy}
-                    .sub.header
-                      | #{createdAt}
-            td #{min} min
-            td #{name}
+  .ui.divider
+  table.ui.very.basic.celled.table
+    thead
+      tr
+        th Action
+        th Time (#{totalMin})
+    tbody
+    each actions
+      tr
+        td
+          h4.ui.image.header
+            img.ui.mini.rounded.image(src='/logo.png')
+            a(href="{{pathFor 'singleAction'}}")
+              .content #{name}
+                .sub.header by #{username}
+        td #{min} min

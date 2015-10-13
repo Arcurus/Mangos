@@ -6,7 +6,7 @@ To Install on your own mashine
 curl https://install.meteor.com/ | sh  
 
 2.Clone the Mangos Repository  
-github clone https://github.com/Samsemilio/Mangos.git  
+github clone https://github.com/CO-OPEN/Mangos.git  
 
 3.Go into the cloned project folder   
 

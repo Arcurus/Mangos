@@ -4,16 +4,17 @@ template(name="subPeople")
     thead
       tr
         th Person
-        th Share
+        th Min (#{totalMin})
+        th Percent
     tbody
-    each shares
-      tr
-        td
-          h4.ui.image.header
-            img.ui.mini.rounded.image(src='/logo.png')
-            .content #{person}
-              .sub.header
-                | Job Title
-        td
-          | #{percent}%
+      each shares
+        tr
+          td
+            h4.ui.image.header
+              img.ui.mini.rounded.image(src='/logo.png')
+              .content #{username}
+                .sub.header
+                  | Placeholder
+          td #{min}
+          td #{percent}%
 

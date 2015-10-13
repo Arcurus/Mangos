@@ -34,20 +34,33 @@ Meteor.methods
       actions: []
 
   addAction: (name, min, projectId) ->
-    actionId =
-      Actions.insert
-        createdAt: new Date()
-        createdBy: Meteor.userId()
-        name: name
-        min: min
-        projects: [projectId]
+    Actions.insert
+      createdAt: new Date()
+      createdBy: Meteor.userId()
+      name: name
+      min: min
+      project: projectId
 
     Projects.update projectId,
       $inc:
         totalMin: min
-      $push:
-        actions: actionId
 
+    shareId = Shares.findOne '$and': [
+      { project: projectId }
+      { createdBy: Meteor.userId() }
+    ]
+
+    if shareId
+      Shares.update shareId,
+        $inc:
+          min: min
+    else
+      shareId =
+        Shares.insert
+          createdAt: new Date()
+          createdBy: Meteor.userId()
+          min: min
+          project: projectId
 
   #Verify a Person
   verifyPerson: (person) ->

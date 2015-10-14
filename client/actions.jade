@@ -5,7 +5,7 @@ template(name='actions')
       tr
         th Action
         th Time
-        th Projects
+        th Project
     tbody
     each actions
       tr
@@ -17,7 +17,5 @@ template(name='actions')
                 | #{name}
                 .sub.header
                   | #{createdBy}
-        td #{min} min
-        td
-          each projects
-            a(href="{{pathFor 'singleProject'}}") #{name}
+        td #{time} min
+        td #{project}

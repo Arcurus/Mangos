@@ -1,10 +1,9 @@
 template(name="subPeople")
-  h3 People
   table.ui.very.basic.celled.table
     thead
       tr
         th Person
-        th Min (#{totalMin})
+        th Min (#{totalTime})
         th Percent
     tbody
       each shares
@@ -15,6 +14,6 @@ template(name="subPeople")
               .content #{username}
                 .sub.header
                   | Placeholder
-          td #{min}
+          td #{totalTime}
           td #{percent}%
 

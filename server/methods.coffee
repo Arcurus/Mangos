@@ -3,45 +3,44 @@ Meteor.methods
   addTransaction: (receiver, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
       #Calculate the respective Points
-      amountPoints = amount * Meteor.user().points / Meteor.user().mangos
+      points = amount * Meteor.user().points / Meteor.user().mangos
       #Remove the Transaction amount from the Senders Account
       Meteor.users.update Meteor.userId(),
         $inc:
-          points: -amountPoints
+          points: -points
 
       #Add the Transaction amount to Receiver Account
       Meteor.users.update receiver,
         $inc:
-          points: amountPoints
+          points: points
 
       #Add the Transaction to the Transaction Collection for History
       Transactions.insert
         createdAt: new Date()
         createdBy: Meteor.userId()
-        mangos: amount
-        points: amountPoints
-        from: Meteor.userId()
-        message: message
+        amount: amount
+        points: points
+        sender: Meteor.userId()
         receiver: receiver
+        message: message
 
   payProject: (projectId, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
       #Calculate the respective Points
-      amountPoints = amount * Meteor.user().points / Meteor.user().mangos
+      points = amount * Meteor.user().points / Meteor.user().mangos
       #Remove the Transaction amount from the Senders Account
       Meteor.users.update Meteor.userId(),
         $inc:
-          points: -amountPoints
+          points: -points
 
       sharesA = Shares.find({project: projectId}).fetch()
-      totalMin = Projects.findOne(projectId).totalMin
+      totalTime = Projects.findOne(projectId).totalTime
       for person, i in sharesA
         #Add the Transaction amount to Receiver Account
-        addPoints = sharesA[i].min / totalMin * amountPoints
-        addMangos = sharesA[i].min / totalMin * amount
-        console.log addMangos
-        receiver = sharesA[i].createdBy
-        Meteor.users.update sharesA[i].createdBy,
+        addPoints = sharesA[i].totalTime / totalTime * points
+        addMangos = sharesA[i].totalTime / totalTime * amount
+        receiver = sharesA[i].person
+        Meteor.users.update sharesA[i].person,
           $inc:
             points: addPoints
 
@@ -51,7 +50,7 @@ Meteor.methods
           createdBy: Meteor.userId()
           mangos: addMangos
           points: addPoints
-          from: Meteor.userId()
+          sender: Meteor.userId()
           message: message
           receiver: receiver
           project: projectId
@@ -63,36 +62,36 @@ Meteor.methods
       createdAt: new Date()
       createdBy: Meteor.userId()
       name: name
-      totalMin: 0
-      actions: []
+      totalTime: 0
 
   addAction: (name, min, projectId) ->
     Actions.insert
       createdAt: new Date()
       createdBy: Meteor.userId()
       name: name
-      min: min
+      time: min
       project: projectId
 
     Projects.update projectId,
       $inc:
-        totalMin: min
+        totalTime: min
 
     shareId = Shares.findOne '$and': [
       { project: projectId }
-      { createdBy: Meteor.userId() }
+      { person: Meteor.userId() }
     ]
 
     if shareId
       Shares.update shareId,
         $inc:
-          min: min
+          totalTime: min
     else
       shareId =
         Shares.insert
           createdAt: new Date()
           createdBy: Meteor.userId()
-          min: min
+          person: Meteor.userId()
+          totalTime: min
           project: projectId
 
   #Verify a Person
@@ -102,7 +101,7 @@ Meteor.methods
       Meteor.users.update person,
         $set:
           verifiedAt: currentAge
-       #Add the Verification to the Verification Collection for History
+       #Add the Verification to the Verifications Collection
       Verifications.insert
         createdAt: new Date()
         createdBy: Meteor.userId()

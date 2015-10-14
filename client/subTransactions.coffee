@@ -6,7 +6,7 @@ Template.subTransactions.helpers
   receiver: ->
     Meteor.users.findOne(@receiver).username
   sender: ->
-    Meteor.users.findOne(@from).username
+    Meteor.users.findOne(@sender).username
   project: ->
     Projects.findOne(@project).name
   mangos: ->

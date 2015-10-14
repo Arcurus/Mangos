@@ -4,7 +4,7 @@ Template.people.helpers
       sort:
         mangos: -1
   profilePicture: ->
-    @.profile.picture
+    @profile.picture
   peopleCount: ->
     Meteor.users.find().count()
   peopleVerified: ->

@@ -2,11 +2,11 @@ Template.singlePerson.helpers
   transactions: ->
     Transactions.find(
       $or: [
-        {from: @._id}
+        {sender: @_id}
         {receiver: @_id}
       ]
     )
   sender: ->
-    Meteor.users.findOne @.from
+    Meteor.users.findOne @sender
   receiver: ->
-    Meteor.users.findOne @.receiver
+    Meteor.users.findOne @receiver

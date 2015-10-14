@@ -1,46 +1,46 @@
 template(name='transactions')
-  .ui.stackable.grid
-    .four.wide.column
-      form.ui.form.addTransaction#transfer
-        .field
-          label Amount
-          input(type="text", name="amount", placeholder="Choose the Amount of Mangos to Send")
-        .field.selection.dropdown
-          label Receiver
-          +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver")
-        .field
-          label Message
-          input.field(type="text", name="message", placeholder="Add an optional message to your transaction")
+  //
+    form.ui.form.addTransaction#transfer
+      .field
+        label Amount
+        input(type="text", name="amount", placeholder="Choose the Amount of Mangos to Send")
+      .field.selection.dropdown
+        label Receiver
+        +inputAutocomplete(settings=settings id="receiver" name="receiver" placeholder="Select Receiver")
+      .field
+        label Message
+        input.field(type="text", name="message", placeholder="Add an optional message to your transaction")
 
-        button.ui.button(type='submit') Transfer
+      button.ui.button(type='submit') Transfer
 
-    .twelve.wide.column
-      table.ui.very.basic.celled.table
-        thead
-          tr
-            th Sender
-            th Mangos
-            th Receiver
-            th Date
-            th Message
-        tbody
-        each transactions
-          tr
-            td #{username}
-            td #{mangos}
-            td #{receiver}
-            td #{createdAt}
-            td #{message}
+  table.ui.very.basic.celled.table
+    thead
+      tr
+        th Sender
+        th Mangos
+        th Receiver
+        th Project
+        th Date
+        th Message
+    tbody
+    each transactions
+      tr
+        td #{username}
+        td #{mangos}
+        td #{receiver}
+        td #{project}
+        td #{createdAt}
+        td #{message}
+//
+  template(name='searchUserDropDown')
+    .menu
+      .item
+        if profile.picture
+          img.ui.mini.avatar.image(src='#{profile.picture}')
+        else
+          img.ui.mini.avatar.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
+        | #{username}
 
-template(name='searchUserDropDown')
-  .menu
-    .item
-      if profile.picture
-        img.ui.mini.avatar.image(src='#{profile.picture}')
-      else
-        img.ui.mini.avatar.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
-      | #{username}
-
- template(name='noMatch')
-  .menu
-    .item No Person with this name found
+  template(name='noMatch')
+    .menu
+      .item No Person with this name found

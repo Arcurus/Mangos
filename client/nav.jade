@@ -7,4 +7,5 @@ template(name="nav")
     a(href="/transactions" class="{{#if currentRouteIs 'transactions'}}active{{/if}}").item TRANSACTIONS
     a(href="/verifications" class="{{#if currentRouteIs 'verifications'}}active{{/if}}").item VERIFICATIONS
     .right.menu
+      .item #{username}
       a.logout(href="#").item Logout

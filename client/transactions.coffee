@@ -3,6 +3,9 @@ Template.transactions.helpers
     Transactions.find {},
       sort:
         createdAt: -1
+  createdAt: ->
+    time = new Date(@createdAt).toDateString()
+    time.substr 0, time.length - 4
 
   settings: ->
     {
@@ -17,9 +20,13 @@ Template.transactions.helpers
       } ]
     }
   username: ->
-    Meteor.users.findOne(@.from).username
+    Meteor.users.findOne(@.sender).username
   receiver: ->
     Meteor.users.findOne(@.receiver).username
+  mangos: ->
+    @mangos.toFixed(3)
+  project: ->
+    Projects.findOne(@project).name
 
 Template.transactions.onRendered ->
   $('#transfer').validate

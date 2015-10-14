@@ -13,7 +13,7 @@ template(name="subActions")
     thead
       tr
         th Action
-        th Time (#{totalMin})
+        th Time (#{totalTime})
     tbody
     each actions
       tr
@@ -23,4 +23,4 @@ template(name="subActions")
             a(href="{{pathFor 'singleAction'}}")
               .content #{name}
                 .sub.header by #{username}
-        td #{min} min
+        td #{time} min

@@ -11,6 +11,8 @@ Template.people.helpers
     Meteor.users.find(verified: true).count()
   percent: ->
     @percent.toFixed(3)
+  points: ->
+    @points.toFixed(3)
   mangos: ->
     @mangos.toFixed(3)
   years: ->

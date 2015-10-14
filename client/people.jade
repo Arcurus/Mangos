@@ -5,6 +5,7 @@ template(name='people')
         th Profiles (#{peopleCount}) verified (#{peopleVerified})
         th Mangos
         th Percent
+        th Points
         th Age (years)
         if userVerified
           th Verify
@@ -27,6 +28,7 @@ template(name='people')
                     | not verified yet
         td #{mangos}
         td #{percent}%
+        td #{points}
         td #{years}
         if userVerified
           td

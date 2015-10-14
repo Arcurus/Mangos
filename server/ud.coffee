@@ -1,8 +1,8 @@
 #Universal Dividend Settings
 #Initial reference
-udSpark = 1
+udSpark = 100
 #Yearly Growth & Dividend
-udGrowth = 0.1
+udGrowth = 0.2
 #Linking the Relative Money to a fixed 10 Mangos per Day
 mangoFactor = (365 * 10) #EveryDay 10 Mangos will be added to your account
 #Setting the timespeed

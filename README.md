@@ -16,5 +16,7 @@ meteor
 5.Open localhost:3000 in your favorite browser and enjoy  
 
 6.Fork, Improve and make Pull-Requests
+We are using the simple github flow collaboration process, get yourself familiar with it at:  
+https://guides.github.com/introduction/flow/
 
-7.Accepted Pull-Requests from the Master will be automatically deployed via Codeship 
+7.Accepted Pull-Requests for the Live Branch will be automatically deployed to mangos.liv.io via Codeship 

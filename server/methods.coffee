@@ -59,11 +59,18 @@ Meteor.methods
   #Create new Project
   addProjects: (name) ->
     if (Meteor.user().verified)
-      Projects.insert
+      projectId =
+        Projects.insert
+          createdAt: new Date()
+          createdBy: Meteor.userId()
+          name: name
+          totalTime: 1
+      Shares.insert
         createdAt: new Date()
         createdBy: Meteor.userId()
-        name: name
-        totalTime: 0
+        person: Meteor.userId()
+        totalTime: 1
+        project: projectId
 
   addAction: (name, min, projectId) ->
     if (Meteor.user().verified)
@@ -83,18 +90,9 @@ Meteor.methods
         { person: Meteor.userId() }
       ]
 
-      if shareId
-        Shares.update shareId,
-          $inc:
-            totalTime: min
-      else
-        shareId =
-          Shares.insert
-            createdAt: new Date()
-            createdBy: Meteor.userId()
-            person: Meteor.userId()
-            totalTime: min
-            project: projectId
+      Shares.update shareId,
+        $inc:
+          totalTime: min
 
   #Verify a Person
   verifyPerson: (person) ->

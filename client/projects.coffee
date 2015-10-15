@@ -3,6 +3,8 @@ Template.projects.helpers
     Projects.find()
   createdBy: ->
     Meteor.users.findOne @createdBy
+  peopleCount: ->
+    Shares.find({project: @_id}).count()
 
 Template.projects.onRendered ->
   $('.addProject').validate

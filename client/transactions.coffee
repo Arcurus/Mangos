@@ -48,7 +48,7 @@ Template.transactions.events
   'submit .addTransaction': (event) ->
     event.preventDefault()
     receiver = Session.get 'ReceiverId'
-    amount = Number(event.target.amount.value)
+    amount = event.target.amount.value
     message = event.target.message.value
     Meteor.call 'addTransaction', receiver, amount, message
     Session.set 'ReceiverId', null

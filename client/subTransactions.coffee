@@ -12,10 +12,26 @@ Template.subTransactions.helpers
   mangos: ->
     @mangos.toFixed(3)
 
+Template.subTransactions.onRendered ->
+  $('.payProject').validate
+    rules:
+      amount:
+        required: true
+        min: 0
+        max: (event) ->
+          Meteor.user().mangos
+        number: true
+      message:
+        minlength: 1
+        maxlength: 120
+    messages:
+      amount:
+        min: "You are cheeky"
+
 Template.subTransactions.events
   'submit .payProject': (event) ->
     event.preventDefault()
-    amount = Number(event.target.amount.value)
+    amount = event.target.amount.value
     message = event.target.message.value
     projectId = @._id
     Meteor.call 'payProject', projectId, amount, message

@@ -1,5 +1,5 @@
-jQuery.validator.addMethod('goodReceiver', function(value, element) {
-  if(Meteor.userId() != Session.get("ReceiverId")) {
+jQuery.validator.addMethod('unique', function(name) {
+  if(name != Session.get("ReceiverId")) {
     return isValid;
   }
-}, "You can not send yourself mangos");
+});

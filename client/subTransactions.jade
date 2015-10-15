@@ -4,9 +4,11 @@ template(name="subTransactions")
       .field
         input(type="text", name="message", placeholder="optional message")
       .field
-        .ui.input.action
-          input(type="text", name="amount", placeholder="choose amount")
-          button.ui.button(type='submit') Pay Now
+        .fields
+          .ten.wide.field
+            input(type="number", name="amount", placeholder="choose amount")
+          .six.wide.field
+            button.ui.button.fluid(type='submit') Give Mangos
 
   .ui.divider
   .ui.feed

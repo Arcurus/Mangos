@@ -22,6 +22,9 @@ Template.people.helpers
   timeTillExpiration: ->
     time = 5 - (@years - @verifiedAt)
     return time.toFixed(2)
+  allowed: ->
+    if(@verifyLevel > 0)
+      return true
 
 Template.people.events
   'click .verify': ->

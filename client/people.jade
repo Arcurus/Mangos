@@ -24,12 +24,14 @@ template(name='people')
                 .sub.header
                   if verified
                     | #{timeTillExpiration} years till expiration
-                  else
+                  else if allowed
                     | not verified yet
+                  else
+                    | Anonymous | Can not be verified
         td #{mangos}
         td #{percent}%
         td #{points}
         td #{years}
-        if userVerified
-          td
+        td
+          if allowed
             button.ui.mini.button.verify Verify

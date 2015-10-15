@@ -3,6 +3,10 @@ Accounts.onCreateUser(function(options, user) {
     options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
     user.profile = options.profile;
     user.username = user.services.facebook.first_name + " " + user.services.facebook.last_name;
+    user.verifyLevel = 1
+  }
+  else {
+    user.verifyLevel = 0
   }
   user.years = 0;
   user.points = 0;

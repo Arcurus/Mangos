@@ -58,56 +58,60 @@ Meteor.methods
 
   #Create new Project
   addProjects: (name) ->
-    Projects.insert
-      createdAt: new Date()
-      createdBy: Meteor.userId()
-      name: name
-      totalTime: 0
+    if (Meteor.user().verified)
+      Projects.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        name: name
+        totalTime: 0
 
   addAction: (name, min, projectId) ->
-    Actions.insert
-      createdAt: new Date()
-      createdBy: Meteor.userId()
-      name: name
-      time: min
-      project: projectId
+    if (Meteor.user().verified)
+      Actions.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        name: name
+        time: min
+        project: projectId
 
-    Projects.update projectId,
-      $inc:
-        totalTime: min
-
-    shareId = Shares.findOne '$and': [
-      { project: projectId }
-      { person: Meteor.userId() }
-    ]
-
-    if shareId
-      Shares.update shareId,
+      Projects.update projectId,
         $inc:
           totalTime: min
-    else
-      shareId =
-        Shares.insert
-          createdAt: new Date()
-          createdBy: Meteor.userId()
-          person: Meteor.userId()
-          totalTime: min
-          project: projectId
+
+      shareId = Shares.findOne '$and': [
+        { project: projectId }
+        { person: Meteor.userId() }
+      ]
+
+      if shareId
+        Shares.update shareId,
+          $inc:
+            totalTime: min
+      else
+        shareId =
+          Shares.insert
+            createdAt: new Date()
+            createdBy: Meteor.userId()
+            person: Meteor.userId()
+            totalTime: min
+            project: projectId
 
   #Verify a Person
   verifyPerson: (person) ->
-    currentAge = Meteor.users.findOne(person).years
-    if person != Meteor.userId()
-      Meteor.users.update person,
-        $set:
+    if (Meteor.user().verified)
+      currentAge = Meteor.users.findOne(person).years
+      if(person != Meteor.userId() and Meteor.users.findOne(person).verifyLevel > 0)
+        Meteor.users.update person,
+          $set:
+            verifiedAt: currentAge
+         #Add the Verification to the Verifications Collection
+        Verifications.insert
+          createdAt: new Date()
+          createdBy: Meteor.userId()
+          verifiedPerson: person
           verifiedAt: currentAge
-       #Add the Verification to the Verifications Collection
-      Verifications.insert
-        createdAt: new Date()
-        createdBy: Meteor.userId()
-        verifiedPerson: person
-        verifiedAt: currentAge
+      else
+        console.log "You can verify yourself or this person"
     else
-      console.log "You can not verify yourself"
-
+      console.log "Your are not allowed to verify"
 

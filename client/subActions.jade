@@ -4,9 +4,11 @@ template(name="subActions")
       .field
         input(type="text", name="name", placeholder="describe you action")
       .field
-        .ui.input.action
-          input(type="text", name="min", placeholder="your minutes spended")
-          button.ui.button(type='submit') Add Action
+        .fields
+          .twelve.wide.field
+            input(type="number", name="min", placeholder="minutes spended on task")
+          .four.wide.field
+            button.ui.button.fluid(type='submit') Add Action
 
   .ui.divider
   table.ui.very.basic.celled.table

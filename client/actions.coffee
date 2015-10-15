@@ -1,6 +1,6 @@
 Template.actions.helpers
   actions: ->
-    Actions.find(),
+    Actions.find {},
       sort:
         createdAt: -1
   project: ->

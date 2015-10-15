@@ -1,19 +1,21 @@
 template(name='projects')
   form.ui.form.addProject
-    .ui.input.action
-      input(type="text", name="name", placeholder="Project name")
-      button.ui.button(type='submit') Create new Project
+    .two.fields
+      .twelve.wide.field
+        input(type="text", name="name", placeholder="Project name")
+      .four.wide.field
+        button.ui.button.fluid(type='submit') Create new Project
 
   .ui.divider
   .ui.five.column.grid
-      each projects
-        .column
-          a(href="{{pathFor 'singleProject'}}")
-            .ui.fluid.card
-              .image
-                img(src='/logo.png')
-              .content
-                .header #{name}
-                .meta #{createdBy}
-              .extra.content
-                .right.floated #{totalMin} min
+    each projects
+      .column
+        a(href="{{pathFor 'singleProject'}}")
+          .ui.fluid.card
+            .image
+              img(src='/logo.png')
+            .content
+              .header #{name}
+              .meta #{createdBy}
+            .extra.content
+              .right.floated #{totalTime} min

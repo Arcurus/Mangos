@@ -34,7 +34,7 @@
 
   // Configure environment
   "env": {
-    "ROOT_URL": "http://localhost",
+    "ROOT_URL": "http://mangos.liv.io",
     "PORT": 80,
     "METEOR_ENV": "production"
   },

@@ -7,15 +7,14 @@ template(name='projects')
         button.ui.button.fluid(type='submit') Create new Project
 
   .ui.divider
-  .ui.five.column.grid
+  .ui.cards
     each projects
-      .column
-        a(href="{{pathFor 'singleProject'}}")
-          .ui.fluid.card
-            .image
-              img(src='/logo.png')
-            .content
-              .header #{name}
-              .meta #{createdBy}
-            .extra.content
-              .right.floated #{totalTime} min
+      a.ui.card(href="{{pathFor 'singleProject'}}")
+        .image
+          img(src="/logo_rec.png")
+        .content
+          img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
+          .header #{name}
+          .meta #{createdBy.username}
+        .extra.content
+          .right.floated #{totalTime} min

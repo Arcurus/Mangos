@@ -1,19 +1,19 @@
 template(name='singleProject')
+  .ui.grid.stackable
+    .four.wide.column
+      .ui.header
+        img(src='/logo.png')
+        .content #{name}
+          .sub.header #{username}
+      .ui.vertical.fluid.right.secondary.menu
+        a.active.item(data-tab="transactions") Transactions
+        a.item(data-tab="actions") Actions
+        a.item(data-tab="people") People
 
-  .ui.grid
-    .thirteen.wide.column.streched
+    .twelve.wide.column.streched
       .ui.active.attached.tab(data-tab="transactions")
         +subTransactions
       .ui.attached.tab(data-tab="actions")
         +subActions
       .ui.attached.tab(data-tab="people")
         +subPeople
-
-    .three.wide.column
-      .ui.vertical.fluid.right.secondary.menu
-        .item
-          b #{name}
-        a.active.item(data-tab="transactions") Transactions
-        a.item(data-tab="actions") Actions
-        a.item(data-tab="people") People
-

@@ -3,8 +3,8 @@ Template.subActions.helpers
     Actions.find {project: @_id},
       sort:
         createdAt: -1
-  username: ->
-    Meteor.users.findOne(@createdBy).username
+  createdBy: ->
+    Meteor.users.findOne @createdBy
 
 Template.subActions.onRendered ->
   $('.addAction').validate

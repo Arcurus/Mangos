@@ -15,8 +15,8 @@ template(name="subTransactions")
     each transactions
       .event
         .label
-          img(src='/logo.png')
+          img(src='#{receiver.profile.picture}')
         .content
           .date #{createdAt}
           .summary
-            p #{receiver} received #{mangos} from #{sender} over the #{project} project
+            p #{receiver.username} received #{mangos} from #{sender.username} over the #{project} project

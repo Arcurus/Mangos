@@ -4,14 +4,14 @@ template(name="subPeople")
       tr
         th Person
         th Min (#{totalTime})
-        th Percent
+        th Share
     tbody
       each shares
         tr
           td
             h4.ui.image.header
-              img.ui.mini.rounded.image(src='/logo.png')
-              .content #{username}
+              img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+              .content #{createdBy.username}
                 .sub.header
                   | Placeholder
           td #{totalTime}

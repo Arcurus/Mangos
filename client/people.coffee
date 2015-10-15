@@ -2,7 +2,7 @@ Template.people.helpers
   users: ->
     Meteor.users.find {},
       sort:
-        mangos: -1
+        points: -1
   profilePicture: ->
     @profile.picture
   peopleCount: ->

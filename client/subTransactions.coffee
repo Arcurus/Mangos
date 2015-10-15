@@ -4,9 +4,9 @@ Template.subTransactions.helpers
       sort:
         createdAt: -1
   receiver: ->
-    Meteor.users.findOne(@receiver).username
+    Meteor.users.findOne(@receiver)
   sender: ->
-    Meteor.users.findOne(@sender).username
+    Meteor.users.findOne(@sender)
   project: ->
     Projects.findOne(@project).name
   mangos: ->

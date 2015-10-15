@@ -1,6 +1,8 @@
 Template.projects.helpers
   projects: ->
     Projects.find()
+  createdBy: ->
+    Meteor.users.findOne @createdBy
 
 Template.projects.onRendered ->
   $('.addProject').validate

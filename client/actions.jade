@@ -11,11 +11,10 @@ template(name='actions')
       tr
         td
           h4.ui.image.header
-            img.ui.mini.rounded.image(src='/logo.png')
-            a(href="{{pathFor 'singleAction'}}")
-              .content
-                | #{name}
-                .sub.header
-                  | #{createdBy}
+            img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+            .content
+              | #{name}
+              .sub.header
+                | #{createdBy.username}
         td #{time} min
-        td #{project}
+        td #{project.name}

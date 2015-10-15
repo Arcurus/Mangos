@@ -31,3 +31,5 @@ Template.subActions.events
     min = Number(event.target.min.value)
     projectId = @._id
     Meteor.call 'addAction', name, min, projectId
+    event.target.name.value = null
+    event.target.min.value = null

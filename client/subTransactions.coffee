@@ -35,7 +35,6 @@ Template.subTransactions.events
     message = event.target.message.value
     projectId = @._id
     Meteor.call 'payProject', projectId, amount, message
-    Session.set 'ReceiverId', null
     event.target.message.value = null
     event.target.amount.value = null
     return

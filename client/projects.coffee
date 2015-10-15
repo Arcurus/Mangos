@@ -21,3 +21,4 @@ Template.projects.events
     event.preventDefault()
     name = event.target.name.value
     Meteor.call 'addProjects', name
+    event.target.name.value = null

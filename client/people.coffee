@@ -23,7 +23,8 @@ Template.people.helpers
     time = 5 - (@years - @verifiedAt)
     return time.toFixed(2)
   allowed: ->
-    if(@verifyLevel > 0)
+    console.log Meteor.userId() + @_id
+    if(@verifyLevel > 0 and Meteor.userId() != @._id)
       return true
 
 Template.people.events

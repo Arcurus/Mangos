@@ -6,9 +6,9 @@ template(name='singleProject')
         .content #{name}
           .sub.header #{username}
       .ui.vertical.fluid.right.secondary.menu
-        a.active.item(data-tab="transactions") Transactions
-        a.item(data-tab="actions") Actions
-        a.item(data-tab="people") People
+        a.active.item(data-tab="transactions") Transactions (#{transactionsCount})
+        a.item(data-tab="actions") Actions (#{actionsCount})
+        a.item(data-tab="people") People (#{peopleCount})
 
     .twelve.wide.column.streched
       .ui.active.attached.tab(data-tab="transactions")

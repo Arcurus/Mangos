@@ -1,6 +1,8 @@
 Template.subMessages.helpers
   messages: ->
     Messages.find {project: @_id}
+  user: ->
+    Meteor.users.findOne @createdBy
 
 Template.subMessages.onRendered ->
   $('.addMessage').validate

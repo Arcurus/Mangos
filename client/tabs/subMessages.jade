@@ -1,4 +1,5 @@
 template(name="subMessages")
+
   form.ui.form.addMessage
     .fields
       .twelve.wide.field
@@ -7,12 +8,13 @@ template(name="subMessages")
         button.ui.button.fluid(type='submit') Send
 
   .ui.divider
-  .ui.feed
+  .ui.feed.scroll
     each messages
       .event
         .label
-          img(src='#{receiver.profile.picture}')
+          img(src='#{user.profile.picture}')
         .content
           .date #{createdAt}
           .summary
             p #{message}
+

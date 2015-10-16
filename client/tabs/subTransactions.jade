@@ -17,6 +17,6 @@ template(name="subTransactions")
         .label
           img(src='#{receiver.profile.picture}')
         .content
-          .date #{createdAt}
-          .summary
-            p #{receiver.username} received #{mangos} from #{sender.username} over the #{project} project
+          .summary #{receiver.username} received #{mangos} Mangos from #{sender.username}
+            .date #{createdat}
+          .exta.text #{message}

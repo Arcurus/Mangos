@@ -5,7 +5,6 @@ template(name='people')
         th Profiles (#{peopleCount}) verified (#{peopleVerified})
         th Mangos
         th Percent
-        th Coins
         th Age (years)
         if userVerified
           th Verify
@@ -30,7 +29,6 @@ template(name='people')
                     | Anonymous | Can not be verified
         td #{mangos}
         td #{percent}%
-        td #{points}
         td #{years}
         td
           if allowed

@@ -1,6 +1,8 @@
 Template.projects.helpers
   projects: ->
-    Projects.find()
+    Projects.find {},
+      sort:
+        totalTime: -1
   createdBy: ->
     Meteor.users.findOne @createdBy
   peopleCount: ->

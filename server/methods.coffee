@@ -24,6 +24,7 @@ Meteor.methods
         receiver: receiver
         message: message
 
+
   #Transfer mangos to project and distribute according to shares to project members
   payProject: (projectId, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
@@ -66,6 +67,7 @@ Meteor.methods
           createdBy: Meteor.userId()
           name: name
           totalTime: 1
+          description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta."
       #Insert share into shares collection (temporary workaround)
       Shares.insert
         createdAt: new Date()

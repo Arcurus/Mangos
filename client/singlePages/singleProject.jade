@@ -1,18 +1,20 @@
 template(name='singleProject')
   .ui.grid.stackable
-    .four.wide.column
+    .three.wide.column
       .ui.header
-        img(src='/logo.png')
         .content #{name}
-          .sub.header #{username}
+          .sub.header by #{username}
       .ui.vertical.secondary.menu
-        a.active.item(data-tab="transactions") Transactions (#{transactionsCount})
+        a.active.item(data-tab="overview") Overview
+        a.item(data-tab="transactions") Transactions (#{transactionsCount})
         a.item(data-tab="actions") Actions (#{actionsCount})
         a.item(data-tab="people") People (#{peopleCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
-    .twelve.wide.column.streched
-      .ui.active.attached.tab(data-tab="transactions")
+    .thirteen.wide.column.streched
+      .ui.active.attached.tab(data-tab="overview")
+        +subOverview
+      .ui.attached.tab(data-tab="transactions")
         +subTransactions
       .ui.attached.tab(data-tab="actions")
         +subActions

@@ -1,0 +1,24 @@
+template(name='teams')
+  form.ui.form.addProject
+    .two.fields
+      .twelve.wide.field
+        input(type="text", name="name", placeholder="Project name")
+      .four.wide.field
+        button.ui.button.fluid(type='submit') Create new Project
+
+  .ui.divider
+  .ui.cards
+    each projects
+      a.ui.card(href="{{pathFor 'singleProject'}}")
+        .image
+          img(src="/logo_rec.png")
+        .content
+          img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
+          .header #{name}
+          .meta #{createdBy.username}
+        .extra.content
+          | #{peopleCount}
+          i.users.icon
+          | #{messageCount}
+          i.icon.comments
+          .right.floated #{totalTime} min

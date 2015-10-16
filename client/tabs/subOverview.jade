@@ -1,0 +1,24 @@
+template(name="subOverview")
+  img.ui.image.fluid(src="/banner.png")
+  .ui.tiny.statistics
+    .statistic
+      .value #{peopleCount}
+      .label Contributors
+    .statistic
+      .value #{transactionsCount}
+      .label Transactions
+    .statistic
+      .value #{actionsCount}
+      .label Actions
+    .statistic
+      .value #{messageCount}
+      .label Messages
+    .statistic
+      .value #{totalMangos}
+      .label Mangos received
+    .statistic
+      .value #{totalTime}
+      .label Minutes invested
+
+  .ui.divider
+  h3(style="font-weight: 300; margin-top: 0.5em") #{description}

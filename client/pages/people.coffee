@@ -1,4 +1,10 @@
 Template.people.helpers
+  mangoCount: ->
+    array = Meteor.users.find({verified: true}).fetch()
+    total = 0
+    for users, i in array
+      total += array[i].mangos
+    return total.toFixed(3)
   users: ->
     Meteor.users.find {},
       sort:

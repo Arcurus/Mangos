@@ -16,7 +16,7 @@ Template.subOverview.helpers
     for transfers, i in array
       total += array[i].mangos
       console.log total
-    return total
+    return total.toFixed(2)
   totalTime: ->
     array = Shares.find({project: @_id}).fetch()
     console.log array

@@ -10,3 +10,4 @@ Template.singlePerson.helpers
     Meteor.users.findOne @sender
   receiver: ->
     Meteor.users.findOne @receiver
+

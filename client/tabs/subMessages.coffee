@@ -1,6 +1,8 @@
 Template.subMessages.helpers
   messages: ->
-    Messages.find {project: @_id}
+    Messages.find {project: @_id},
+      sort:
+        createdAt: -1
   user: ->
     Meteor.users.findOne @createdBy
 

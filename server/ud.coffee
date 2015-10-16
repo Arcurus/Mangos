@@ -4,7 +4,7 @@ udSpark = 100
 #Yearly Growth & Dividend
 udGrowth = 0.2
 #Linking the Relative Money to a fixed 10 Mangos per Day
-mangoFactor = (365 * 10) #EveryDay 10 Mangos will be added to your account
+mangoFactor = (365 * 24) #EveryDay 10 Mangos will be added to your account
 #Setting the timespeed
 interval = (365 * 24 * 60) # 1Sec is 1min or 1min is 1h or 24min is 1day or 12h is 1month or 3.5 days is 1 year or 35days ~10 years
 

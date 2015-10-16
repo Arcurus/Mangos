@@ -5,6 +5,8 @@ Template.projects.helpers
     Meteor.users.findOne @createdBy
   peopleCount: ->
     Shares.find({project: @_id}).count()
+  messageCount: ->
+    Messages.find({project: @_id}).count()
 
 Template.projects.onRendered ->
   $('.addProject').validate

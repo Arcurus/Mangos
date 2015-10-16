@@ -4,7 +4,13 @@ Template.home.helpers
     total = 0
     for users, i in array
       total += array[i].mangos
-    return total.toFixed(3)
+    return total.toFixed(2)
+  averageMangos: ->
+    array = Meteor.users.find({verified: true}).fetch()
+    total = 0
+    for users, i in array
+      total += array[i].mangos
+    return (total / Meteor.users.find({verified: true}).count()).toFixed(0)
   totalVerifiedPeople: ->
     Meteor.users.find(verified: true).count()
   totalTransactions: ->

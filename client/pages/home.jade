@@ -7,14 +7,18 @@ template(name='home')
       p This is extrem work in progress, therefore Mangos and People can magically disappear at any time, eaten up by hungry bugs! If eaten don't hesitate to help us on
         a(href="http://github.com/Samsemilio/Mangos/issues")  Github
 
-  .ui.statistics
+  .ui.statistics.small
+    .statistic
+      .value #{totalMangos}
+      .label Total Mangos
+
     .statistic
       .value #{totalVerifiedPeople}
       .label verified People
 
     .statistic
-      .value #{totalMangos}
-      .label Total Mangos
+      .value #{averageMangos}
+      .label average Mangos
 
     .statistic
       .value #{totalTransactions}
@@ -51,14 +55,14 @@ template(name='home')
   a(href="http://talk.liv.io/t/simplest-verification-process-for-a-beginning-member-base-of-1-1000/14") Simple Verification Process
   .ui.list
     .item
-      .header Demurrage Fee: 20%
-      |  To be fair in the long run and encourage spending of mangos during one year 20% of the mangos are decaying on every verified account
-    .item
-      .header Mango generation:
-      | Every verified member gets one mango per hour
+      .header Mango distribution:
+      | Each verified memeber will receive 24 Mangos per day
     .item
       .header Total Amount of Mangos to be generated per Person:
-      | In some years the  money supply per participant would be quite stable with going towards 24 mangos * 365 * 5 ~43.800 mangos per participant at maximum
+      | Over the course of time the total money supply will stabilize at 43800 Mangos per verified member
+    .item
+      .header Demurrage Fee: 20%
+      |  To encourage spending the mangos, every year 20% of the the total amount of mangos will be rotting.
     .item
       .header Speed
       |  In this prototype we use for the demonstration purpose a speeding up factor, setting 1min to a 1sec interval. So 10 virtual years is about 1 real month

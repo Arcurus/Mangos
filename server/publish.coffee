@@ -18,4 +18,4 @@ Meteor.publish 'Shares', ->
   Shares.find()
 #Publish all Messages
 Meteor.publish 'Messages', ->
-  Messages.fin()
+  Messages.find()

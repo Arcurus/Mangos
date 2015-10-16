@@ -148,3 +148,11 @@ Meteor.methods
     else
       console.log "Your are not allowed to verify"
 
+  addMessage: (projectId, message) ->
+    console.log projectId + message
+    if (Meteor.user().verified)
+      Messages.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        message: message
+        project: projectId

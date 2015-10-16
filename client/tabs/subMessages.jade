@@ -1,0 +1,18 @@
+template(name="subMessages")
+  form.ui.form.addMessage
+    .fields
+      .twelve.wide.field
+        input(type="text", name="message", placeholder="message")
+      .four.wide.field
+        button.ui.button.fluid(type='submit') Send
+
+  .ui.divider
+  .ui.feed
+    each messages
+      .event
+        .label
+          img(src='#{receiver.profile.picture}')
+        .content
+          .date #{createdAt}
+          .summary
+            p #{message}

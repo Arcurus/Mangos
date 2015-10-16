@@ -9,6 +9,7 @@ template(name='singleProject')
         a.active.item(data-tab="transactions") Transactions (#{transactionsCount})
         a.item(data-tab="actions") Actions (#{actionsCount})
         a.item(data-tab="people") People (#{peopleCount})
+        a.item(data-tab="messages") Messages (#{messageCount})
 
     .twelve.wide.column.streched
       .ui.active.attached.tab(data-tab="transactions")
@@ -17,3 +18,5 @@ template(name='singleProject')
         +subActions
       .ui.attached.tab(data-tab="people")
         +subPeople
+      .ui.attached.tab(data-tab="messages")
+        +subMessages

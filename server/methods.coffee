@@ -24,6 +24,7 @@ Meteor.methods
         receiver: receiver
         message: message
 
+  #Transfer mangos to project and distribute according to shares to project members
   payProject: (projectId, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
       #Calculate the respective Points
@@ -32,7 +33,7 @@ Meteor.methods
       Meteor.users.update Meteor.userId(),
         $inc:
           points: -points
-
+      #Get all shares from project
       sharesA = Shares.find({project: projectId}).fetch()
       totalTime = Projects.findOne(projectId).totalTime
       for person, i in sharesA
@@ -65,6 +66,7 @@ Meteor.methods
           createdBy: Meteor.userId()
           name: name
           totalTime: 1
+      #Insert share into shares collection (temporary workaround)
       Shares.insert
         createdAt: new Date()
         createdBy: Meteor.userId()
@@ -72,6 +74,7 @@ Meteor.methods
         totalTime: 1
         project: projectId
 
+  #Add new Action to project
   addAction: (name, min, projectId) ->
     if (Meteor.user().verified)
       Actions.insert
@@ -81,19 +84,42 @@ Meteor.methods
         time: min
         project: projectId
 
-      Projects.update projectId,
-        $inc:
-          totalTime: min
+      #Calculate total time spended on this project
+      actionsA = Actions.find({project: projectId}).fetch()
+      totalTime = 0
+      for action, i in actionsA
+        totalTime += actionsA[i].time
 
+      #Enter calculated totalTime into project document
+      Projects.update projectId,
+        $set:
+          totalTime: totalTime
+
+      #Find the respective share document for this user and project
       shareId = Shares.findOne '$and': [
         { project: projectId }
         { person: Meteor.userId() }
       ]
 
       if shareId
+        #Find all actions belonging to this share
+        actionsA = Actions.find('$and': [
+          {project: projectId}
+          {createdBy: Meteor.userId() }
+        ]).fetch()
+
+        #Calculate totalTime on this share
+        console.log actionsA
+        totalTime = 0
+        for action, i in actionsA
+          totalTime += actionsA[i].time
+
+        #Enter totalTime into share document
         Shares.update shareId,
-          $inc:
-            totalTime: min
+          $set:
+            totalTime: totalTime
+
+      #Create new share document
       else
         shareId =
           Shares.insert
@@ -111,7 +137,7 @@ Meteor.methods
         Meteor.users.update person,
           $set:
             verifiedAt: currentAge
-         #Add the Verification to the Verifications Collection
+        #Add the Verification to the Verifications Collection
         Verifications.insert
           createdAt: new Date()
           createdBy: Meteor.userId()

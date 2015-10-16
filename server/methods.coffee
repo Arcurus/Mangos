@@ -90,9 +90,18 @@ Meteor.methods
         { person: Meteor.userId() }
       ]
 
-      Shares.update shareId,
-        $inc:
-          totalTime: min
+      if shareId
+        Shares.update shareId,
+          $inc:
+            totalTime: min
+      else
+        shareId =
+          Shares.insert
+            createdAt: new Date()
+            createdBy: Meteor.userId()
+            person: Meteor.userId()
+            totalTime: min
+            project: projectId
 
   #Verify a Person
   verifyPerson: (person) ->

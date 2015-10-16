@@ -7,6 +7,8 @@ Template.singleProject.helpers
     Transactions.find({project: @_id}).count()
   actionsCount: ->
     Actions.find({project: @_id}).count()
+  messageCount: ->
+    Messages.find({project: @_id}).count()
 
 Template.singleProject.events
   'click .menu .item': ->

@@ -3,6 +3,8 @@ Template.subMessages.helpers
     Messages.find {project: @_id}
   user: ->
     Meteor.users.findOne @createdBy
+  messageCount: ->
+    Messages.find({project: @_id}).count()
 
 Template.subMessages.onRendered ->
   $('.addMessage').validate

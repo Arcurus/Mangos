@@ -34,3 +34,6 @@ Template.home.helpers
   user: ->
     Meteor.users.findOne @createdBy
 
+  project: ->
+    Projects.findOne @project
+

@@ -11,7 +11,7 @@ template(name='projects')
     each projects
       a.ui.card(href="{{pathFor 'singleProject'}}")
         .image
-          img(src="/logo_rec.png")
+          img(src="#{banner}")
         .content
           img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
           .header #{name}

@@ -27,5 +27,8 @@ Template.home.helpers
       total += array[i].time
       console.log total
     return total
-
+  messages: ->
+    Messages.find()
+  user: ->
+    Meteor.users.findOne @createdBy
 

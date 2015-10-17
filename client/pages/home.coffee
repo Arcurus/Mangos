@@ -28,7 +28,9 @@ Template.home.helpers
       console.log total
     return total
   messages: ->
-    Messages.find()
+    Messages.find {},
+      sort:
+        createdAt: -1
   user: ->
     Meteor.users.findOne @createdBy
 

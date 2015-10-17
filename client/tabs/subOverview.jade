@@ -22,3 +22,25 @@ template(name="subOverview")
 
   .ui.divider
   h3(style="font-weight: 300; margin-top: 0.5em") #{description}
+  h3 Give Mangos to this Project
+  form.ui.form.payProject
+    .two.fields
+      .field
+        input(type="text", name="message", placeholder="optional message")
+      .field
+        .fields
+          .ten.wide.field
+            input(type="number", name="amount", placeholder="choose amount")
+          .six.wide.field
+            button.ui.button.fluid(type='submit') Give Mangos
+
+  .ui.divider
+  .ui.feed
+    each transactions
+      .event
+        .label
+          img(src='#{receiver.profile.picture}')
+        .content
+          .summary #{receiver.username} received #{mangos} Mangos from #{sender.username}
+            .date #{createdat}
+          .exta.text #{message}

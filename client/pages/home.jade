@@ -70,11 +70,12 @@ template(name='home')
   h4 And now enjoy giving your Mangos to your friends, before our Bugs are eating them up or even you!
 
   h2 Message Board
-  each messages
-    .event
-      .label
-        img(src='#{user.profile.picture}')
-      .content
-        .summary #{user.username}
-          .date #{createdAt}
-        .exta.text #{message}
+  .ui.feed
+    each messages
+      .event
+        .label
+          img(src='#{user.profile.picture}')
+        .content
+          .summary #{user.username}
+            .date #{createdAt}
+          .exta.text #{message}

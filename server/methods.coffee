@@ -2,24 +2,21 @@ Meteor.methods
   #Transfer Amount from Person to Project and back to Person
   addTransaction: (receiver, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
-      #Calculate the respective Points
-      points = amount * Meteor.user().points / Meteor.user().mangos
       #Remove the Transaction amount from the Senders Account
       Meteor.users.update Meteor.userId(),
         $inc:
-          points: -points
+          mangos: -amount
 
       #Add the Transaction amount to Receiver Account
       Meteor.users.update receiver,
         $inc:
-          points: points
+          mangos: amount
 
       #Add the Transaction to the Transaction Collection for History
       Transactions.insert
         createdAt: new Date()
         createdBy: Meteor.userId()
-        amount: amount
-        points: points
+        mangos: amount
         sender: Meteor.userId()
         receiver: receiver
         message: message
@@ -28,30 +25,26 @@ Meteor.methods
   #Transfer mangos to project and distribute according to shares to project members
   payProject: (projectId, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
-      #Calculate the respective Points
-      points = amount * Meteor.user().points / Meteor.user().mangos
       #Remove the Transaction amount from the Senders Account
       Meteor.users.update Meteor.userId(),
         $inc:
-          points: -points
+          mangos: -amount
       #Get all shares from project
       sharesA = Shares.find({project: projectId}).fetch()
       totalTime = Projects.findOne(projectId).totalTime
       for person, i in sharesA
         #Add the Transaction amount to Receiver Account
-        addPoints = sharesA[i].totalTime / totalTime * points
         addMangos = sharesA[i].totalTime / totalTime * amount
         receiver = sharesA[i].person
-        Meteor.users.update sharesA[i].person,
+        Meteor.users.update receiver,
           $inc:
-            points: addPoints
+            mangos: addMangos
 
         #Add the Transaction to the Transactions Collection for History
         Transactions.insert
           createdAt: new Date()
           createdBy: Meteor.userId()
           mangos: addMangos
-          points: addPoints
           sender: Meteor.userId()
           message: message
           receiver: receiver

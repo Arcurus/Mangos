@@ -76,6 +76,6 @@ template(name='home')
         .label
           img(src='#{user.profile.picture}')
         .content
-          .summary #{user.username} wrote in #{project.name}
+          .summary #{user.username} wrote in #{projectName} #{orgaName}
             .date #{createdAt}
           .exta.text #{message}

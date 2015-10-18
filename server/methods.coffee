@@ -180,7 +180,7 @@ Meteor.methods
       Transactions.insert
         createdAt: new Date()
         createdBy: Meteor.userId()
-        mangos: amount
+        mangos: +amount
         sender: Meteor.userId()
         message: message
         receiver: organisationId

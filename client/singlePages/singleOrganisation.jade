@@ -6,13 +6,10 @@ template(name='singleOrganisation')
           .sub.header by #{username}
       .ui.vertical.secondary.menu
         a.active.item(data-tab="overview") Overview
-        a.item(data-tab="transactions") Transactions (#{transactionsCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
     .thirteen.wide.column.streched
       .ui.active.attached.tab(data-tab="overview")
         +organisationOverview
-      .ui.attached.tab(data-tab="transactions")
-        +subTransactions
       .ui.attached.tab(data-tab="messages")
         +subMessages

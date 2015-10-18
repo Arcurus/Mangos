@@ -7,6 +7,8 @@ Template.organisations.helpers
     Meteor.users.findOne @createdBy
   messageCount: ->
     Messages.find({childOf: @_id}).count()
+  mangos: ->
+    @mangos.toFixed(0)
 
 Template.organisations.onRendered ->
   $('.addOrganisation').validate

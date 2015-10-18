@@ -1,4 +1,8 @@
 Template.subOverview.helpers
+  shares: ->
+    Shares.find {project: @_id}
+  createdBy: ->
+    Meteor.users.findOne @createdBy
   user: ->
     Meteor.users.findOne(@createdBy)
   peopleCount: ->

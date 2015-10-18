@@ -1,5 +1,10 @@
 template(name="subOverview")
-  img.ui.image.fluid(src="#{banner}")
+  .ui.ten.doubling.cards
+    each shares
+      a.card
+        .image
+          img(src="#{createdBy.profile.picture}")
+  .ui.divider
   .ui.tiny.statistics
     .statistic
       .value #{peopleCount}

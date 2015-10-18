@@ -7,18 +7,30 @@ template(name='projects')
         button.ui.button.fluid(type='submit') Create new Project
 
   .ui.divider
-  .ui.cards
+  table.ui.very.basic.table
+    thead
+      tr
+        th Contributors
+        th People
+        th Min
+        th Mangos received
+        th Transactions
+        th Actions
+        th Messages
+
+    tbody
     each projects
-      a.ui.card(href="{{pathFor 'singleProject'}}")
-        .image
-          img(src="#{banner}")
-        .content
-          img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
-          .header #{name}
-          .meta #{createdBy.username}
-        .extra.content
-          | #{peopleCount}
-          i.users.icon
-          | #{messageCount}
-          i.icon.comments
-          .right.floated #{totalTime} min
+      tr
+        td
+          h4.ui.image.header
+            img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+            a(href="{{pathFor 'singleProject'}}")
+              .content
+                | #{name}
+                .sub.header #{createdBy.username}
+        td #{peopleCount}
+        td #{totalTime}
+        td #{totalMangos}
+        td #{transactionsCount}
+        td #{actionsCount}
+        td #{messageCount}

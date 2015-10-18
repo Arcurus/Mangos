@@ -5,10 +5,8 @@ Template.organisations.helpers
         createdAt: 1
   createdBy: ->
     Meteor.users.findOne @createdBy
-  peopleCount: ->
-    Shares.find({project: @_id}).count()
   messageCount: ->
-    Messages.find({project: @_id}).count()
+    Messages.find({childOf: @_id}).count()
 
 Template.organisations.onRendered ->
   $('.addOrganisation').validate

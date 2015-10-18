@@ -1,9 +1,14 @@
 Template.home.helpers
   totalMangos: ->
-    array = Meteor.users.find({verified: true}).fetch()
-    total = 0
-    for users, i in array
-      total += array[i].mangos
+    peopleA = Meteor.users.find({verified: true}).fetch()
+    sumPeople = 0
+    organisationsA = Organisations.find().fetch()
+    sumOrganisations = 0
+    for orga, i in organisationsA
+      sumOrganisations += organisationsA[i].mangos
+    for users, i in peopleA
+      sumPeople += peopleA[i].mangos
+    total = sumOrganisations + sumPeople
     return total.toFixed(2)
   averageMangos: ->
     array = Meteor.users.find({verified: true}).fetch()

@@ -4,9 +4,9 @@ Template.organisationOverview.helpers
   transactionsCount: ->
     Transactions.find({organisation: @_id}).count()
   messageCount: ->
-    Messages.find({organisation: @_id}).count()
+    Messages.find({childOf: @_id}).count()
   totalMangos: ->
-    @mangos.toFixed(0)
+    @mangos.toFixed(3)
   transactions: ->
     Transactions.find {organisation: @_id},
       sort:

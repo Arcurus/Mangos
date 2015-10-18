@@ -22,11 +22,18 @@ Template.transactions.helpers
   username: ->
     Meteor.users.findOne(@.sender).username
   receiver: ->
-    Meteor.users.findOne(@.receiver).username
+    if @project
+      Meteor.users.findOne(@.receiver).username
+    else
+      Organisations.findOne(@.receiver).name
   mangos: ->
     @mangos.toFixed(3)
   project: ->
-    Projects.findOne(@project).name
+    if @project
+      Projects.findOne(@project).name
+    else
+      Organisations.findOne(@.receiver).name
+
 
 Template.transactions.onRendered ->
   $('#transfer').validate

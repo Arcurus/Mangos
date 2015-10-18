@@ -1,6 +1,6 @@
 Template.subMessages.helpers
   messages: ->
-    Messages.find {project: @_id},
+    Messages.find {childOf: @_id},
       sort:
         createdAt: -1
   user: ->

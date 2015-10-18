@@ -7,8 +7,6 @@ template(name='singleOrganisation')
       .ui.vertical.secondary.menu
         a.active.item(data-tab="overview") Overview
         a.item(data-tab="transactions") Transactions (#{transactionsCount})
-        a.item(data-tab="projects") Projects (#{projectsCount})
-        a.item(data-tab="people") People (#{peopleCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
     .thirteen.wide.column.streched
@@ -16,9 +14,5 @@ template(name='singleOrganisation')
         +organisationOverview
       .ui.attached.tab(data-tab="transactions")
         +subTransactions
-      .ui.attached.tab(data-tab="projects")
-        +subProjects
-      .ui.attached.tab(data-tab="people")
-        +subPeople
       .ui.attached.tab(data-tab="messages")
         +subMessages

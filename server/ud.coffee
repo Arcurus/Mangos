@@ -12,6 +12,12 @@ Meteor.setInterval (->
   totalMangos = 0
   for person, i in peopleA
     totalMangos += peopleA[i].mangos
+  orgaA = Organisations.find().fetch()
+  for orga, i in orgaA
+    takeUD = orgaA[i].mangos * dailyRotting / interval
+    Organisations.update orgaA[i],
+      $inc:
+        mangos: -takeUD
 
   for person, j in peopleA
     timeSinceVerified = peopleA[j].years - peopleA[j].verifiedAt

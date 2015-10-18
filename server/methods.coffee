@@ -150,7 +150,7 @@ Meteor.methods
         createdAt: new Date()
         createdBy: Meteor.userId()
         message: message
-        project: projectId
+        childOf: projectId
 
  #Create new Project
   addOrganisation: (name) ->
@@ -160,6 +160,7 @@ Meteor.methods
           createdAt: new Date()
           createdBy: Meteor.userId()
           banner: "/banner.png"
+          mangos: 0
           name: name
           description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta."
 
@@ -179,7 +180,7 @@ Meteor.methods
       Transactions.insert
         createdAt: new Date()
         createdBy: Meteor.userId()
-        mangos: +amount
+        mangos: amount
         sender: Meteor.userId()
         message: message
         receiver: organisationId

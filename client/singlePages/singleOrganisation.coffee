@@ -4,7 +4,7 @@ Template.singleOrganisation.helpers
   transactionsCount: ->
     Transactions.find({organisation: @_id}).count()
   messageCount: ->
-    Messages.find({organisation: @_id}).count()
+    Messages.find({childOf: @_id}).count()
 
 Template.singleOrganisation.events
   'click .menu .item': ->

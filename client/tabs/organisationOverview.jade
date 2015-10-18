@@ -1,0 +1,41 @@
+template(name="organisationOverview")
+  img.ui.image.fluid(src="#{banner}")
+  .ui.tiny.statistics
+    .statistic
+      .value #{projectsCount}
+      .label Projects
+    .statistic
+      .value #{transactionsCount}
+      .label Transactions
+    .statistic
+      .value #{messageCount}
+      .label Messages
+    .statistic
+      .value #{totalMangos}
+      .label Mangos
+
+
+  .ui.divider
+  h3(style="font-weight: 300; margin-top: 0.5em") #{description}
+  h3 Give Mangos to this Organisation
+  form.ui.form.payOrganisation
+    .two.fields
+      .field
+        input(type="text", name="message", placeholder="optional message")
+      .field
+        .fields
+          .ten.wide.field
+            input(type="number", name="amount", placeholder="choose amount")
+          .six.wide.field
+            button.ui.button.fluid(type='submit') Give Mangos
+
+  .ui.divider
+  .ui.feed
+    each transactions
+      .event
+        .label
+          img(src='#{sender.profile.picture}')
+        .content
+          .summary #{sender.username} transfered #{mangos} Mangos to #{receiver.username}
+            .date #{createdat}
+          .exta.text #{message}

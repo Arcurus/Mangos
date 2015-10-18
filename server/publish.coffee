@@ -19,3 +19,6 @@ Meteor.publish 'Shares', ->
 #Publish all Messages
 Meteor.publish 'Messages', ->
   Messages.find()
+#Publish all Organisations
+Meteor.publish 'Organisations', ->
+  Organisations.find()

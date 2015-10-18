@@ -20,6 +20,11 @@ Router.map ->
     path: '/actions/:_id'
     data: ->
       Actions.findOne @params._id
+  @route 'organisations', path: '/organisations'
+  @route 'singleOrganisation',
+    path: '/organisations/:_id'
+    data: ->
+      Organisations.findOne @params._id
 
 
 #Redirect User when not Loggedin to the Login template

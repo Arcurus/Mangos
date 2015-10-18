@@ -4,3 +4,4 @@
 @Actions = new Mongo.Collection 'actions'
 @Shares = new Mongo.Collection 'shares'
 @Messages = new Mongo.Collection 'messages'
+@Organisations = new Mongo.Collection 'organisations'

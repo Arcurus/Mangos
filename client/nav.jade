@@ -2,8 +2,9 @@ template(name="nav")
   .ui.secondary.pointing.menu
     a(href="/" class="{{#if currentRouteIs 'home'}}active{{/if}}").item HOME
     a(href="/people" class="{{#if currentRouteIs 'people'}}active{{/if}}").item PEOPLE
-    a(href="/actions" class="{{#if currentRouteIs 'actions'}}active{{/if}}").item ACTIONS
+    a(href="/organisations" class="{{#if currentRouteIs 'organisations'}}active{{/if}}").item ORGANISATIONS
     a(href="/projects" class="{{#if currentRouteIs 'projects'}}active{{/if}}").item PROJECTS
+    a(href="/actions" class="{{#if currentRouteIs 'actions'}}active{{/if}}").item ACTIONS
     a(href="/transactions" class="{{#if currentRouteIs 'transactions'}}active{{/if}}").item TRANSACTIONS
     a(href="/verifications" class="{{#if currentRouteIs 'verifications'}}active{{/if}}").item VERIFICATIONS
     .right.menu

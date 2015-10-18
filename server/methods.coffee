@@ -21,7 +21,6 @@ Meteor.methods
         receiver: receiver
         message: message
 
-
   #Transfer mangos to project and distribute according to shares to project members
   payProject: (projectId, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
@@ -152,3 +151,36 @@ Meteor.methods
         createdBy: Meteor.userId()
         message: message
         project: projectId
+
+ #Create new Project
+  addOrganisation: (name) ->
+    if (Meteor.user().verified)
+      organisationId =
+        Organisations.insert
+          createdAt: new Date()
+          createdBy: Meteor.userId()
+          banner: "/banner.png"
+          name: name
+          description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta."
+
+   payOrganisation: (organisationId, amount, message) ->
+    if (Meteor.user().verified and amount <= Meteor.user().mangos)
+      #Remove the Transaction amount from the Senders Account
+      Meteor.users.update Meteor.userId(),
+        $inc:
+          mangos: -amount
+
+      #Add the Transaction amount to the organisation account
+      Organisations.update organisationId,
+        $inc:
+          mangos: +amount
+
+      #Add the Transaction to the Transactions Collection for History
+      Transactions.insert
+        createdAt: new Date()
+        createdBy: Meteor.userId()
+        mangos: +amount
+        sender: Meteor.userId()
+        message: message
+        receiver: organisationId
+        organisation: organisationId

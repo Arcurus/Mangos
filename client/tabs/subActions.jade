@@ -1,28 +1,29 @@
 template(name="subActions")
-  form.ui.form.addAction
-    .two.fields
-      .field
-        input(type="text", name="name", placeholder="describe you action")
-      .field
-        .fields
-          .twelve.wide.field
-            input(type="number", name="min", placeholder="minutes spended on task")
-          .four.wide.field
-            button.ui.button.fluid(type='submit') Add Action
+  #main
+    form.ui.form.addAction
+      .two.fields
+        .field
+          input(type="text", name="name", placeholder="describe you action")
+        .field
+          .fields
+            .twelve.wide.field
+              input(type="number", name="min", placeholder="minutes spended on task")
+            .four.wide.field
+              button.ui.button.fluid(type='submit') Add Action
 
-  .ui.divider
-  table.ui.very.basic.celled.table
-    thead
-      tr
-        th Action
-        th Time (#{totalTime})
-    tbody
-    each actions
-      tr
-        td
-          h4.ui.image.header
-            img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
-            a(href="{{pathFor 'singleAction'}}")
-              .content #{name}
-                .sub.header by #{createdBy.username}
-        td #{time} min
+    .ui.divider
+    table.ui.very.basic.celled.table
+      thead
+        tr
+          th Action
+          th Time (#{totalTime})
+      tbody
+      each actions
+        tr
+          td
+            h4.ui.image.header
+              img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+              a(href="{{pathFor 'singleAction'}}")
+                .content #{name}
+                  .sub.header by #{createdBy.username}
+          td #{time} min

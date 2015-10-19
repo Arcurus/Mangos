@@ -1,20 +1,24 @@
 template(name="subMessages")
+  #main
+    form.ui.form.addMessage
+      .fields
+        .twelve.wide.field
+          input(type="text", name="message", placeholder="message")
+        .four.wide.field
+          button.ui.button.fluid(type='submit') Send
+    .ui.divider
 
-  form.ui.form.addMessage
-    .fields
-      .twelve.wide.field
-        input(type="text", name="message", placeholder="message")
-      .four.wide.field
-        button.ui.button.fluid(type='submit') Send
+    .ui.feed
+      each messages
+        .event
+          .label
+            if user.profile.picture
+              img(src='#{user.profile.picture}')
+            else
+              img(src="/card.png")
 
-  .ui.divider
-  .ui.feed
-    each messages
-      .event
-        .label
-          img(src='#{user.profile.picture}')
-        .content
-          .date #{createdAt}
-          .summary
-            p #{message}
+          .content
+            .date #{createdAt}
+            .summary
+              p #{message}
 

@@ -1,35 +1,36 @@
 template(name='people')
-  table.ui.very.basic.celled.table
-    thead
-      tr
-        th Profiles (#{peopleCount}) verified (#{peopleVerified})
-        th Mangos (#{mangoCount})
-        th Percent
-        th Age (years)
-        if userVerified
-          th Verify
-    tbody
-    each users
-      tr
-        td
-          h4.ui.image.header
-            if profile.picture
-              img.ui.mini.rounded.image(src='#{profile.picture}')
-            else
-              img.ui.mini.rounded.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
-            a(href="{{pathFor 'singlePerson'}}")
-              .content
-                | #{username}
-                .sub.header
-                  if verified
-                    | #{timeTillExpiration} years till expiration
-                  else if allowed
-                    | not verified yet
-                  else
-                    | Anonymous | Can not be verified
-        td #{mangos}
-        td #{percent}%
-        td #{years}
-        td
-          if allowed
-            button.ui.mini.button.verify Verify
+  #main
+    table.ui.very.basic.celled.table
+      thead
+        tr
+          th Profiles (#{peopleCount}) verified (#{peopleVerified})
+          th Mangos (#{mangoCount})
+          th Percent
+          th Age (years)
+          if userVerified
+            th Verify
+      tbody
+      each users
+        tr
+          td
+            h4.ui.image.header
+              if profile.picture
+                img.ui.mini.rounded.image(src='#{profile.picture}')
+              else
+                img.ui.mini.rounded.image(src='https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png')
+              a(href="{{pathFor 'singlePerson'}}")
+                .content
+                  | #{username}
+                  .sub.header
+                    if verified
+                      | #{timeTillExpiration} years till expiration
+                    else if allowed
+                      | not verified yet
+                    else
+                      | Anonymous | Can not be verified
+          td #{mangos}
+          td #{percent}%
+          td #{years}
+          td
+            if allowed
+              button.ui.mini.button.verify Verify

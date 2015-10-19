@@ -1,19 +1,20 @@
 template(name="subPeople")
-  table.ui.very.basic.celled.table
-    thead
-      tr
-        th Person
-        th Min (#{totalTime})
-        th Share
-    tbody
-      each shares
+  #main
+    table.ui.very.basic.celled.table
+      thead
         tr
-          td
-            h4.ui.image.header
-              img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
-              .content #{createdBy.username}
-                .sub.header
-                  | Placeholder
-          td #{totalTime}
-          td #{percent}%
+          th Person
+          th Min (#{totalTime})
+          th Share
+      tbody
+        each shares
+          tr
+            td
+              h4.ui.image.header
+                img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+                .content #{createdBy.username}
+                  .sub.header
+                    | Placeholder
+            td #{totalTime}
+            td #{percent}%
 

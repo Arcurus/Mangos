@@ -1,11 +1,14 @@
 template(name="subOverview")
-  .ui.ten.doubling.cards
+  .ui.ten.doubling.cards(style="padding: 1em 2em 0.5em 2em")
     each shares
       a.card
         .image
-          img(src="#{createdBy.profile.picture}")
+          if receiver.profile.picture
+            img(src="#{createdBy.profile.picture}")
+          else
+            img(src="/card.png")
   .ui.divider
-  .ui.tiny.statistics
+  .ui.tiny.statistics(style="padding: 0.5em 2em")
     .statistic
       .value #{peopleCount}
       .label Contributors
@@ -26,9 +29,9 @@ template(name="subOverview")
       .label Minutes invested
 
   .ui.divider
-  h3(style="font-weight: 300; margin-top: 0.5em") #{description}
+  h3(style="font-weight: 300; margin-top: 0.5em; padding: 0.5em 2em") #{description}
   .ui.divider
-  .ui.feed
+  .ui.feed(style="padding: 1em 3em")
     each transactions
       .event
         .label

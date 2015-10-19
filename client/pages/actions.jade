@@ -1,20 +1,20 @@
 template(name='actions')
-
-  table.ui.very.basic.celled.table
-    thead
-      tr
-        th Action
-        th Time
-        th Project
-    tbody
-    each actions
-      tr
-        td
-          h4.ui.image.header
-            img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
-            .content
-              | #{name}
-              .sub.header
-                | #{createdBy.username}
-        td #{time} min
-        td #{project.name}
+  #main
+    table.ui.very.basic.celled.table
+      thead
+        tr
+          th Action
+          th Time
+          th Project
+      tbody
+      each actions
+        tr
+          td
+            h4.ui.image.header
+              img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+              .content
+                | #{name}
+                .sub.header
+                  | #{createdBy.username}
+          td #{time} min
+          td #{project.name}

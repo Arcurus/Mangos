@@ -1,5 +1,5 @@
 template(name="nav")
-  .ui.secondary.pointing.menu
+  .ui.bottom.fixed.secondary.pointing.menu(style="background: #fdfdfd; border-top: solid 1px lightgrey")
     a(href="/" class="{{#if currentRouteIs 'home'}}active{{/if}}").item HOME
     a(href="/people" class="{{#if currentRouteIs 'people'}}active{{/if}}").item PEOPLE
     a(href="/organisations" class="{{#if currentRouteIs 'organisations'}}active{{/if}}").item ORGANISATIONS

@@ -1,81 +1,82 @@
 template(name='home')
-  .ui.icon.message
-    i.notched.github.loading.icon
-    .content
-      .header
-        | Attention: Alpha Prototype
-      p This is extrem work in progress, therefore Mangos and People can magically disappear at any time, eaten up by hungry bugs! If eaten don't hesitate to help us on
-        a(href="http://github.com/Samsemilio/Mangos/issues")  Github
+  #main
+    .ui.icon.message
+      i.notched.github.loading.icon
+      .content
+        .header
+          | Attention: Alpha Prototype
+        p This is extrem work in progress, therefore Mangos and People can magically disappear at any time, eaten up by hungry bugs! If eaten don't hesitate to help us on
+          a(href="http://github.com/Samsemilio/Mangos/issues")  Github
 
-  .ui.statistics.small
-    .statistic
-      .value #{totalMangos}
-      .label Total Mangos
+    .ui.statistics.small
+      .statistic
+        .value #{totalMangos}
+        .label Total Mangos
 
-    .statistic
-      .value #{totalVerifiedPeople}
-      .label verified People
+      .statistic
+        .value #{totalVerifiedPeople}
+        .label verified People
 
-    .statistic
-      .value #{averageMangos}
-      .label average Mangos
+      .statistic
+        .value #{averageMangos}
+        .label average Mangos
 
-    .statistic
-      .value #{totalTransactions}
-      .label Transactions
+      .statistic
+        .value #{totalTransactions}
+        .label Transactions
 
-    .statistic
-      .value #{totalActions}
-      .label Total Actions
+      .statistic
+        .value #{totalActions}
+        .label Total Actions
 
-    .statistic
-      .value #{totalTime}
-      .label Total Time Invested
+      .statistic
+        .value #{totalTime}
+        .label Total Time Invested
 
-    .statistic
-      .value #{totalMessages}
-      .label Total Messages
+      .statistic
+        .value #{totalMessages}
+        .label Total Messages
 
-  h2.ui.header
-    .content Empowering Your Creativity
-      .sub.header An open source
-        a(href="https://hackpad.com/CO-OPEN-Introduction-Draft-dpymPrhqwzq") Co-Creation Platform
-        | in the works by the folks from
-        a(href="http://twitter.com/CO_O_PEN") CO|OPEN
+    h2.ui.header
+      .content Empowering Your Creativity
+        .sub.header An open source
+          a(href="https://hackpad.com/CO-OPEN-Introduction-Draft-dpymPrhqwzq") Co-Creation Platform
+          | in the works by the folks from
+          a(href="http://twitter.com/CO_O_PEN") CO|OPEN
 
-  | For the prototype phase we are using our virtual testcurrency MANGOS to demonstrate the power of a "relational currency", by removing the concept of dept and embracing a universal basic income, inspired by the
-  a(href="http://vit.free.fr/TRM/en_US/index.html") Theory of Relational Money.
-  | If you want to learn more about the concept of Relational Money and Demurrage Fee get engaged on
-  a(href="http://ucoin.io/") ucoin.io
-  | and
-  a(href="http://freico.in/") freico.in
+    | For the prototype phase we are using our virtual testcurrency MANGOS to demonstrate the power of a "relational currency", by removing the concept of dept and embracing a universal basic income, inspired by the
+    a(href="http://vit.free.fr/TRM/en_US/index.html") Theory of Relational Money.
+    | If you want to learn more about the concept of Relational Money and Demurrage Fee get engaged on
+    a(href="http://ucoin.io/") ucoin.io
+    | and
+    a(href="http://freico.in/") freico.in
 
-  h3 Information & Overview
-  | A relational currency is tightly coupled to its members and money distribution is based on the amount of real and unique people in a network of trust, a reason proper identification is indispensable. For simplicity in the beginning, we have a 2 stage verification model. Level 0, every user that is signung up with an anonymous username. Level 1, every user that is signing up with Facebook. If signing up with facebook, you are able to get verfied, and verify other people. Make sure to get verified by other members every 5 years (~17 real days with current settings). On the long run this will be exchanged with a more complex webOfTrust certification method, which is being discussed here:
-  a(href="http://talk.liv.io/t/simplest-verification-process-for-a-beginning-member-base-of-1-1000/14") Simple Verification Process
-  .ui.list
-    .item
-      .header Mango distribution:
-      | Each verified memeber will receive 24 Mangos per day
-    .item
-      .header Total Amount of Mangos to be generated per Person:
-      | Over the course of 5 years the total money supply will stabilize at 43800 Mangos per verified member
-    .item
-      .header Demurrage Fee: 20%
-      |  To encourage spending the mangos, every year 20% of the the total amount of mangos will be rotting.
-    .item
-      .header Speed
-      |  In this prototype we use for the demonstration purpose a speeding up factor, setting 1min to a 1sec interval. So 5 virtual years is about 1 real month
+    h3 Information & Overview
+    | A relational currency is tightly coupled to its members and money distribution is based on the amount of real and unique people in a network of trust, a reason proper identification is indispensable. For simplicity in the beginning, we have a 2 stage verification model. Level 0, every user that is signung up with an anonymous username. Level 1, every user that is signing up with Facebook. If signing up with facebook, you are able to get verfied, and verify other people. Make sure to get verified by other members every 5 years, about every 1 real month. On the long run this will be exchanged with a more complex webOfTrust certification method, which is being discussed here:
+    a(href="http://talk.liv.io/t/simplest-verification-process-for-a-beginning-member-base-of-1-1000/14") Simple Verification Process
+    .ui.list
+      .item
+        .header Mango distribution:
+        | Each verified memeber will receive 24 Mangos per day
+      .item
+        .header Total Amount of Mangos to be generated per Person:
+        | Over the course of 5 years the total money supply will stabilize at 43800 Mangos per verified member
+      .item
+        .header Demurrage Fee: 20%
+        |  To encourage spending the mangos, every year 20% of the the total amount of mangos will be rotting.
+      .item
+        .header Speed
+        |  In this prototype we use for the demonstration purpose a speeding up factor, setting 1min to a 1sec interval. So 5 virtual years is about 1 real month
 
-  h4 And now enjoy giving your Mangos to your friends, before our Bugs are eating them up or even you!
+    h4 And now enjoy giving your Mangos to your friends, before our Bugs are eating them up or even you!
 
-  h2 Message Board
-  .ui.feed
-    each messages
-      .event
-        .label
-          img(src='#{user.profile.picture}')
-        .content
-          .summary #{user.username} wrote in #{projectName} #{orgaName}
-            .date #{createdAt}
-          .exta.text #{message}
+    h2 Message Board
+    .ui.feed
+      each messages
+        .event
+          .label
+            img(src='#{user.profile.picture}')
+          .content
+            .summary #{user.username} wrote in #{projectName} #{orgaName}
+              .date #{createdAt}
+            .exta.text #{message}

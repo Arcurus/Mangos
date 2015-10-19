@@ -1,36 +1,37 @@
 template(name='projects')
-  form.ui.form.addProject
-    .two.fields
-      .twelve.wide.field
-        input(type="text", name="name", placeholder="Project name")
-      .four.wide.field
-        button.ui.button.fluid(type='submit') Create new Project
+  #main
+    form.ui.form.addProject
+      .two.fields
+        .twelve.wide.field
+          input(type="text", name="name", placeholder="Project name")
+        .four.wide.field
+          button.ui.button.fluid(type='submit') Create new Project
 
-  .ui.divider
-  table.ui.very.basic.table
-    thead
-      tr
-        th Project
-        th Contributors
-        th Min
-        th Mangos received
-        th Transactions
-        th Actions
-        th Messages
+    .ui.divider
+    table.ui.very.basic.table
+      thead
+        tr
+          th Project
+          th Contributors
+          th Min
+          th Mangos received
+          th Transactions
+          th Actions
+          th Messages
 
-    tbody
-    each projects
-      tr
-        td
-          h4.ui.image.header
-            img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
-            a(href="{{pathFor 'singleProject'}}")
-              .content
-                | #{name}
-                .sub.header #{createdBy.username}
-        td #{peopleCount}
-        td #{totalTime}
-        td #{totalMangos}
-        td #{transactionsCount}
-        td #{actionsCount}
-        td #{messageCount}
+      tbody
+      each projects
+        tr
+          td
+            h4.ui.image.header
+              img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+              a(href="{{pathFor 'singleProject'}}")
+                .content
+                  | #{name}
+                  .sub.header #{createdBy.username}
+          td #{peopleCount}
+          td #{totalTime}
+          td #{totalMangos}
+          td #{transactionsCount}
+          td #{actionsCount}
+          td #{messageCount}

@@ -1,18 +1,19 @@
 template(name='organisations')
-  form.ui.form.addOrganisation
-    .two.fields
-      .twelve.wide.field
-        input(type="text", name="name", placeholder="Organisation name")
-      .four.wide.field
-        button.ui.button.fluid(type='submit') Submit new Organisation
+  #main
+    form.ui.form.addOrganisation
+      .two.fields
+        .twelve.wide.field
+          input(type="text", name="name", placeholder="Organisation name")
+        .four.wide.field
+          button.ui.button.fluid(type='submit') Submit new Organisation
 
-  .ui.divider
-  .ui.cards
-    each organisations
-      a.ui.card(href="{{pathFor 'singleOrganisation'}}")
-        .image
-          img(src="#{banner}")
-        .content
-          img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
-          .header #{name}
-          .meta #{createdBy.username}
+    .ui.divider
+    .ui.cards
+      each organisations
+        a.ui.card(href="{{pathFor 'singleOrganisation'}}")
+          .image
+            img(src="#{banner}")
+          .content
+            img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
+            .header #{name}
+            .meta #{createdBy.username}

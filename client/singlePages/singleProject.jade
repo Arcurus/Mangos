@@ -1,6 +1,11 @@
 template(name='singleProject')
-  .ui.grid.stackable
-    .four.wide.column
+  .ui.padded.grid.stackable
+    .three.wide.column(style="border-right: solid 1px lightgrey;padding: 1.5em")
+      h3.ui.header
+        img.ui.image(src="/card.png")
+        .content #{name}
+          .sub.header #{username}
+      .ui.divider
       form.ui.form.payProject
         .field
           label Mangos
@@ -10,17 +15,15 @@ template(name='singleProject')
           textarea(rows="1", name="message", placeholder="optional message")
         .field
           button.ui.button.fluid(type='submit') Give Mangos
-      .ui.header
-        .content #{name}
-          .sub.header by #{username}
-      .ui.vertical.secondary.menu
+      .ui.divider
+      .ui.vertical.fluid.secondary.menu
         a.active.item(data-tab="overview") Overview
         a.item(data-tab="transactions") Transactions (#{transactionsCount})
         a.item(data-tab="actions") Actions (#{actionsCount})
         a.item(data-tab="people") People (#{peopleCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
-    .twelve.wide.column.streched
+    .thirteen.wide.column.streched(style="padding: 0em")
       .ui.active.attached.tab(data-tab="overview")
         +subOverview
       .ui.attached.tab(data-tab="transactions")

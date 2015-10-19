@@ -1,6 +1,6 @@
 Template.singleOrganisation.helpers
-  username: ->
-    Meteor.users.findOne(@createdBy).username
+  maintainer: ->
+    Meteor.users.findOne(@createdBy)
   transactionsCount: ->
     Transactions.find({organisation: @_id}).count()
   projectCount: ->

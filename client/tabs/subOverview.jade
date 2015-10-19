@@ -3,10 +3,11 @@ template(name="subOverview")
     each shares
       a.card
         .image
-          if receiver.profile.picture
-            img(src="#{createdBy.profile.picture}")
-          else
-            img(src="/card.png")
+          img(src="#{createdBy.profile.picture}")
+
+  .ui.divider
+  h3(style="font-weight: 300; margin-top: 0.5em; padding: 0.5em 2em") #{description}
+
   .ui.divider
   .ui.tiny.statistics(style="padding: 0.5em 2em")
     .statistic
@@ -27,9 +28,6 @@ template(name="subOverview")
     .statistic
       .value #{totalTime}
       .label Minutes invested
-
-  .ui.divider
-  h3(style="font-weight: 300; margin-top: 0.5em; padding: 0.5em 2em") #{description}
   .ui.divider
   .ui.feed(style="padding: 1em 3em")
     each transactions
@@ -37,6 +35,6 @@ template(name="subOverview")
         .label
           img(src='#{receiver.profile.picture}')
         .content
-          .summary #{receiver.username} received #{mangos} Mangos from #{sender.username}
+          .summary #{sender.username} has given #{mangos} Mangos to #{sender.username}
             .date #{createdat}
           .exta.text #{message}

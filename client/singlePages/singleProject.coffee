@@ -1,6 +1,6 @@
 Template.singleProject.helpers
-  username: ->
-    Meteor.users.findOne(@createdBy).username
+  maintainer: ->
+    Meteor.users.findOne(@createdBy)
   peopleCount: ->
     Shares.find({project: @_id}).count()
   transactionsCount: ->

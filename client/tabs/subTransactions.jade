@@ -21,6 +21,6 @@ template(name="subTransactions")
             else
               img(src="/card.png")
           .content
-            .summary #{receiver.username} received #{mangos} Mangos from #{sender.username}
+            .summary #{sender.username} has given #{mangos} Mangos to #{sender.username}
               .date #{createdat}
             .exta.text #{message}

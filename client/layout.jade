@@ -1,4 +1,5 @@
 template(name='layout')
-  +yield
+  div(style="padding-bottom: 2em")
+    +yield
   if currentUser
     +nav

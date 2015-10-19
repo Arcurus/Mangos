@@ -10,6 +10,7 @@ Template.singleOrganisation.helpers
 
 Template.singleOrganisation.onRendered ->
   @$('textarea').autosize()
+  @$(".menu .item").tab()
   $('.payProject').validate
     rules:
       amount:
@@ -24,10 +25,9 @@ Template.singleOrganisation.onRendered ->
     messages:
       amount:
         min: "You are cheeky"
+        max: "You don't have enough mangos"
 
 Template.singleOrganisation.events
-  'click .menu .item': ->
-    $(".menu .item").tab()
   'submit .payOrganisation': (event) ->
     event.preventDefault()
     amount = event.target.amount.value

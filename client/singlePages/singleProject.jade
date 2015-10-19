@@ -1,6 +1,15 @@
 template(name='singleProject')
   .ui.grid.stackable
-    .three.wide.column
+    .four.wide.column
+      form.ui.form.payProject
+        .field
+          label Mangos
+          input(type="number", name="amount", placeholder="choose amount")
+        .field
+          label Optional Message
+          textarea(rows="1", name="message", placeholder="optional message")
+        .field
+          button.ui.button.fluid(type='submit') Give Mangos
       .ui.header
         .content #{name}
           .sub.header by #{username}
@@ -11,7 +20,7 @@ template(name='singleProject')
         a.item(data-tab="people") People (#{peopleCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
-    .thirteen.wide.column.streched
+    .twelve.wide.column.streched
       .ui.active.attached.tab(data-tab="overview")
         +subOverview
       .ui.attached.tab(data-tab="transactions")

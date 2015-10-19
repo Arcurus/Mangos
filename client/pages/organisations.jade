@@ -11,7 +11,7 @@ template(name='organisations')
     each organisations
       a.ui.card(href="{{pathFor 'singleOrganisation'}}")
         .image
-          img(src="/banner.png")
+          img(src="#{banner}")
         .content
           img.floated.right.mini.ui.image(src="#{createdBy.profile.picture}")
           .header #{name}

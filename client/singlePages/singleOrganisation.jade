@@ -1,6 +1,6 @@
 template(name='singleOrganisation')
   .ui.grid.stackable
-    .three.wide.column
+    .four.wide.column
       .ui.header
         .content #{name}
           .sub.header by #{username}
@@ -9,7 +9,18 @@ template(name='singleOrganisation')
         a.item(data-tab="projects") Projects (#{projectCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
-    .thirteen.wide.column.streched
+      .ui.header
+        .content Show some Love
+      form.ui.form.payOrganisation
+        .field
+          input(type="number", name="amount", placeholder="choose amount")
+        .field
+          label Optional Message
+          textarea(rows="1", name="message", placeholder="optional message")
+        .field
+          button.ui.button.fluid(type='submit') Give Mangos
+
+    .twelve.wide.column.streched
       .ui.active.attached.tab(data-tab="overview")
         +organisationOverview
       .ui.attached.tab(data-tab="projects")

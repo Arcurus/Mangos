@@ -20,31 +20,3 @@ Template.organisationOverview.helpers
   mangos: ->
     @mangos.toFixed(3)
 
-Template.organisationOverview.onRendered ->
-  $('.payProject').validate
-    rules:
-      amount:
-        required: true
-        min: 0
-        max: (event) ->
-          Meteor.user().mangos
-        number: true
-      message:
-        minlength: 1
-        maxlength: 120
-    messages:
-      amount:
-        min: "You are cheeky"
-
-Template.organisationOverview.events
-  'submit .payOrganisation': (event) ->
-    event.preventDefault()
-    amount = event.target.amount.value
-    message = event.target.message.value
-    organisationId = @._id
-    Meteor.call 'payOrganisation', organisationId, amount, message
-    event.target.message.value = null
-    event.target.amount.value = null
-    return
-
-

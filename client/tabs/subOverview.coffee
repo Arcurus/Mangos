@@ -12,7 +12,7 @@ Template.subOverview.helpers
   actionsCount: ->
     Actions.find({project: @_id}).count()
   messageCount: ->
-    Messages.find({project: @_id}).count()
+    Messages.find({childOf: @_id}).count()
   totalMangos: ->
     array = Transactions.find({project: @_id}).fetch()
     console.log array

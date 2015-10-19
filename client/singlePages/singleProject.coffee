@@ -8,7 +8,7 @@ Template.singleProject.helpers
   actionsCount: ->
     Actions.find({project: @_id}).count()
   messageCount: ->
-    Messages.find({project: @_id}).count()
+    Messages.find({childOf: @_id}).count()
 
 Template.singleProject.events
   'click .menu .item': ->

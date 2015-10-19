@@ -1,2 +1,40 @@
 template(name="subProjects")
-  h2 projects
+  | #{id}
+  .ui.search.fluid.selection.dropdown
+    input(type='hidden', name='project').addProject
+    i.dropdown.icon
+    .default.text Add project to this Organisation
+    .menu
+      each projectsSelect
+        .item(data-value='#{_id}')
+          img.ui.mini.avatar.image(src="#{createdBy.profile.picture}")
+          | #{name}
+
+  .ui.divider
+  table.ui.very.basic.table
+    thead
+      tr
+        th Project
+        th Contributors
+        th Min
+        th Mangos received
+        th Transactions
+        th Actions
+        th Messages
+
+    tbody
+    each projects
+      tr
+        td
+          h4.ui.image.header
+            img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+            a(href="{{pathFor 'singleProject'}}")
+              .content
+                | #{name}
+                .sub.header #{createdBy.username}
+        td #{peopleCount}
+        td #{totalTime}
+        td #{totalMangos}
+        td #{transactionsCount}
+        td #{actionsCount}
+        td #{messageCount}

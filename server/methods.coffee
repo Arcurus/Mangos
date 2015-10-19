@@ -164,7 +164,7 @@ Meteor.methods
           name: name
           description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta."
 
-   payOrganisation: (organisationId, amount, message) ->
+  payOrganisation: (organisationId, amount, message) ->
     if (Meteor.user().verified and amount <= Meteor.user().mangos)
       #Remove the Transaction amount from the Senders Account
       Meteor.users.update Meteor.userId(),
@@ -185,3 +185,9 @@ Meteor.methods
         message: message
         receiver: organisationId
         organisation: organisationId
+
+  addProjectToOrga: (projectId, orgaId) ->
+    if (Meteor.user().verified and Organisations.findOne(orgaId).createdBy is Meteor.userId())
+      Projects.update projectId,
+        $addToSet:
+          organisations: orgaId

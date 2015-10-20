@@ -1,26 +1,15 @@
 template(name="subTransactions")
   #main
-    form.ui.form.payProject
-      .two.fields
-        .field
-          input(type="text", name="message", placeholder="optional message")
-        .field
-          .fields
-            .ten.wide.field
-              input(type="number", name="amount", placeholder="choose amount")
-            .six.wide.field
-              button.ui.button.fluid(type='submit') Give Mangos
-
-    .ui.divider
     .ui.feed
       each transactions
         .event
           .label
-            if sender.profile.picture
+            a(href="/people/#{sender._id}")
               img(src='#{sender.profile.picture}')
-            else
-              img(src="/card.png")
           .content
-            .summary #{sender.username} has given #{mangos} Mangos to #{sender.username}
-              .date #{createdat}
+            .date #{createdAt}
+            .summary
+              a(href="/people/#{sender._id}") #{sender.username}
+              | has given #{mangos} Mangos to
+              a(href="/people/#{receiver._id}") #{receiver.username}
             .exta.text #{message}

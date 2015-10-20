@@ -1,9 +1,14 @@
 template(name="subOverview")
-  .ui.ten.doubling.cards(style="padding: 1em 2em 0.5em 2em")
+  .ui.ten.cards(style="padding: 1em 2em 0.5em 2em")
     each shares
-      a.card
-        .image
-          img(src="#{createdBy.profile.picture}")
+      a(href="/people/#{createdBy._id}").card
+        if createdBy.profile.picture
+          .image
+            img(src="#{createdBy.profile.picture}")
+        else
+          .image
+            img(src="/card.png")
+
 
   .ui.divider
   h3(style="font-weight: 300; margin-top: 0.5em; padding: 0.5em 2em") #{description}
@@ -33,8 +38,12 @@ template(name="subOverview")
     each transactions
       .event
         .label
-          img(src='#{receiver.profile.picture}')
+          a(href="/people/#{sender._id}")
+            img(src='#{sender.profile.picture}')
         .content
-          .summary #{sender.username} has given #{mangos} Mangos to #{sender.username}
-            .date #{createdat}
+          .date #{createdAt}
+          .summary
+            a(href="/people/#{sender._id}") #{sender.username}
+            | has given #{mangos} Mangos to
+            a(href="/people/#{receiver._id}") #{receiver.username}
           .exta.text #{message}

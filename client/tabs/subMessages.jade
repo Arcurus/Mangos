@@ -12,13 +12,11 @@ template(name="subMessages")
       each messages
         .event
           .label
-            if user.profile.picture
-              img(src='#{user.profile.picture}')
-            else
-              img(src="/card.png")
+            a(href="/people/#{createdBy._id}")
+              img(src='#{createdBy.profile.picture}')
 
           .content
             .date #{createdAt}
             .summary
-              p #{message}
-
+              a(href="/people/#{createdBy._id}") #{createdBy.username}
+            .extra.text #{message}

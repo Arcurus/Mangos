@@ -3,7 +3,7 @@ Template.subMessages.helpers
     Messages.find {childOf: @_id},
       sort:
         createdAt: -1
-  user: ->
+  createdBy: ->
     Meteor.users.findOne @createdBy
 
 Template.subMessages.onRendered ->

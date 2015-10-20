@@ -78,6 +78,7 @@ Meteor.methods
         name: name
         time: min
         project: projectId
+        status: "Done"
 
       #Calculate total time spended on this project
       actionsA = Actions.find({project: projectId}).fetch()

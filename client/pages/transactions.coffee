@@ -19,21 +19,16 @@ Template.transactions.helpers
         noMatchTemplate: Template.noMatch
       } ]
     }
-  username: ->
-    Meteor.users.findOne(@.sender).username
+  sender: ->
+    Meteor.users.findOne(@.sender)
   receiver: ->
-    if @project
-      Meteor.users.findOne(@.receiver).username
-    else
-      Organisations.findOne(@.receiver).name
+    Meteor.users.findOne(@.receiver)
+  organisation: ->
+    Organisations.findOne(@.receiver)
   mangos: ->
     @mangos.toFixed(3)
   project: ->
-    if @project
-      Projects.findOne(@project).name
-    else
-      Organisations.findOne(@.receiver).name
-
+    Projects.findOne(@project)
 
 Template.transactions.onRendered ->
   $('#transfer').validate

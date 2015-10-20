@@ -77,6 +77,10 @@ template(name='home')
           .label
             img(src='#{user.profile.picture}')
           .content
-            .summary #{user.username} wrote in #{projectName} #{orgaName}
-              .date #{createdAt}
+            .date #{createdAt}
+            .summary
+              a(href="/people/#{user._id}") #{user.username}
+              | wrote in #{projectName}
+              a(href="/organisations/#{orga._id}") #{orga.name}
+              a(href="/projects/#{project._id}") #{project.name}
             .exta.text #{message}

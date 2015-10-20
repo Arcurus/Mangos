@@ -17,6 +17,7 @@ template(name="subActions")
         tr
           th Action
           th Time (#{totalTime})
+          th Status
       tbody
       each actions
         tr
@@ -27,3 +28,4 @@ template(name="subActions")
                 .content #{name}
                   .sub.header by #{createdBy.username}
           td #{time} min
+          td #{status}

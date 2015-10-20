@@ -12,9 +12,14 @@ template(name='transactions')
       tbody
       each transactions
         tr
-          td #{username}
+          td
+            a(href="/people/#{sender._id}") #{sender.username}
           td #{mangos}
-          td #{receiver}
-          td #{project}
+          td
+            a(href="/people/#{receiver._id}") #{receiver.username}
+            a(href="/organisations/#{organisation._id}") #{organisation.name}
+          td
+            a(href="/projects/#{project._id}") #{project.name}
+            a(href="/organisations/#{organisation._id}") #{organisation.name}
           td #{createdAt}
           td #{message}

@@ -14,17 +14,7 @@ template(name='singlePerson')
         a.item(data-tab="people") People (#{peopleCount})
         a.item(data-tab="messages") Messages (#{messageCount})
 
-
     .thirteen.wide.column.streched(style="padding: 2em")
-      .ui.feed
-        each transactions
-          .event
-            .label
-            .content
-              .date #{createdAt}
-              .summary
-                a
-                | #{sender.username} transfered #{mangos} Mangos to #{receiver.username}
       .ui.active.attached.tab(data-tab="overview")
         +subOverview
       .ui.attached.tab(data-tab="transactions")
@@ -36,4 +26,12 @@ template(name='singlePerson')
       .ui.attached.tab(data-tab="messages")
         +subMessages
 
-
+       .ui.feed
+        each transactions
+          .event
+            .label
+            .content
+              .date #{createdAt}
+              .summary
+                a
+                | #{sender.username} transfered #{mangos} Mangos to #{receiver.username}

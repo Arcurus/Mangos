@@ -4,7 +4,7 @@ Template.singleOrganisation.helpers
   transactionsCount: ->
     Transactions.find({organisation: @_id}).count()
   projectCount: ->
-    Projects.find({organisation: @_id}).count()
+    Projects.find({organisations: @_id}).count()
   messageCount: ->
     Messages.find({childOf: @_id}).count()
 

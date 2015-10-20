@@ -38,9 +38,9 @@ Template.home.helpers
         createdAt: -1
   user: ->
     Meteor.users.findOne @createdBy
-  projectName: ->
-    Projects.findOne(@childOf).name
-  orgaName: ->
-    Organisations.findOne(@childOf).name
+  project: ->
+    Projects.findOne(@childOf)
+  orga: ->
+    Organisations.findOne(@childOf)
 
 

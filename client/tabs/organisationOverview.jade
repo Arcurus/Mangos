@@ -20,6 +20,8 @@ template(name="organisationOverview")
         .label
           img(src='#{sender.profile.picture}')
         .content
-          .summary #{sender.username} has given #{mangos} Mangos to #{sender.username}
-            .date #{createdat}
+          .date #{createdAt}
+          .summary
+            a(href="/people/#{sender._id}") #{sender.username}
+            | has given #{mangos} Mangos
           .exta.text #{message}

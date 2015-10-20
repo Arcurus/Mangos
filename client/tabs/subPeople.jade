@@ -11,10 +11,11 @@ template(name="subPeople")
           tr
             td
               h4.ui.image.header
-                img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
-                .content #{createdBy.username}
-                  .sub.header
-                    | Placeholder
+                a(href="/people/#{createdBy._id}")
+                  img.ui.mini.rounded.image(src="#{createdBy.profile.picture}")
+                  .content #{createdBy.username}
+                    .sub.header
+                      | Placeholder
             td #{totalTime}
             td #{percent}%
 

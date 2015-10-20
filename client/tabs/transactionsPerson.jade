@@ -1,0 +1,16 @@
+template(name="transactionsPerson")
+  #main
+    .ui.feed
+      each transactions
+        .event
+          .label
+            a(href="/people/#{sender._id}")
+              img(src='#{sender.profile.picture}')
+          .content
+            .date #{createdAt}
+            .summary
+              a(href="/people/#{sender._id}") #{sender.username}
+              | has given #{mangos} Mangos to
+              a(href="/organisations/#{receiverOrga._id}") #{receiverOrga.name}
+              a(href="/people/#{receiver._id}") #{receiver.username}
+            .exta.text #{message}

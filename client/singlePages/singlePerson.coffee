@@ -10,4 +10,7 @@ Template.singlePerson.helpers
     Meteor.users.findOne @sender
   receiver: ->
     Meteor.users.findOne @receiver
-
+  age: ->
+    @years.toFixed(2)
+Template.singlePerson.onRendered ->
+  @$(".menu .item").tab()

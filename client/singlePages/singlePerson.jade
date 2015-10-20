@@ -1,37 +1,28 @@
 template(name='singlePerson')
   .ui.padded.grid.stackable
     .three.wide.column(style="border-right: solid 1px lightgrey;padding: 1.5em")
-      h3.ui.header
-        img.ui.image(src='#{profile.picture}')
-        .content #{username}
-          .sub.header #{mangos}
-      .ui.divider
-
+      .ui.fluid.card
+        if profile.picture
+          .image
+            img(src='#{profile.picture}')
+        else
+          .image
+            img(src='/card.png')
+        .content
+          .header #{username}
+          .meta #{age}
       .ui.vertical.secondary.menu
         a.active.item(data-tab="overview") Overview
         a.item(data-tab="transactions") Transactions (#{transactionsCount})
-        a.item(data-tab="actions") Actions (#{actionsCount})
-        a.item(data-tab="people") People (#{peopleCount})
-        a.item(data-tab="messages") Messages (#{messageCount})
+       // a.item(data-tab="actions") Actions (#{actionsCount})
+        //a.item(data-tab="messages") Messages (#{messageCount})
 
-    .thirteen.wide.column.streched(style="padding: 2em")
+    .thirteen.wide.column.streched(style="padding: 0em")
       .ui.active.attached.tab(data-tab="overview")
-        +subOverview
+        +overviewPerson
       .ui.attached.tab(data-tab="transactions")
-        +subTransactions
-      .ui.attached.tab(data-tab="actions")
+        +transactionsPerson
+      //.ui.attached.tab(data-tab="actions")
         +subActions
-      .ui.attached.tab(data-tab="people")
-        +subPeople
-      .ui.attached.tab(data-tab="messages")
+      //.ui.attached.tab(data-tab="messages")
         +subMessages
-
-       .ui.feed
-        each transactions
-          .event
-            .label
-            .content
-              .date #{createdAt}
-              .summary
-                a
-                | #{sender.username} transfered #{mangos} Mangos to #{receiver.username}

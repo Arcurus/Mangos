@@ -1,0 +1,29 @@
+template(name="overviewPerson")
+  .ui.tiny.statistics(style="padding: 1.5em 2em 0.5em 2em")
+    .statistic
+      .value #{mangos}
+      .label Mangos
+    .statistic
+      .value #{actionsCount}
+      .label Actions
+    .statistic
+      .value #{messageCount}
+      .label Messages
+    .statistic
+      .value #{totalTime}
+      .label Minutes invested
+  .ui.divider
+  .ui.feed(style="padding: 1em 3em")
+    each transactions
+      .event
+        .label
+          a(href="/people/#{sender._id}")
+            img(src='#{sender.profile.picture}')
+        .content
+          .date #{createdAt}
+          .summary
+            a(href="/people/#{sender._id}") #{sender.username}
+            | has given #{mangos} Mangos to
+            a(href="/organisations/#{receiverOrga._id}") #{receiverOrga.name}
+            a(href="/people/#{receiver._id}") #{receiver.username}
+          .exta.text #{message}
